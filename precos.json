@@ -467,30 +467,6 @@
       }
     }
   },
-  "segunda": {
-        "teste_encontrando_historias_segunda_0740": {
-      "nome": "Teste - Encontrando as próprias histórias // segunda 07h40 // Adulto",
-      "categoria": "segunda",
-      "precos": {
-        "experimental": 19,
-        "avulso": 76,
-        "mensal": 250,
-        "semestral": 225,
-        "anual": 212.50
-      }
-    },
-    "teste_danca_livre_segunda_0900": {
-      "nome": "Teste - Dança Livre // segunda 09h00 // Adulto",
-      "categoria": "segunda",
-      "precos": {
-        "experimental": 19,
-        "avulso": 76,
-        "mensal": 250,
-        "semestral": 225,
-        "anual": 212.50
-      }
-    }
-  },
   "descontos": {
     "irmaos": {
       "nome": "Irmãos",
