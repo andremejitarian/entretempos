@@ -204,7 +204,7 @@ $(document).ready(function () {
 
         // Separa cursos e contraturnos
         const cursos = allCourses.filter(c => c.categoria === 'curso');
-        const contraturnos = allCourses.filter(c => c.categoria === 'contraturno');
+        const contraturnos = allCourses.filter(c => c.categoria === 'segunda');
 
         // Função para criar checkboxes
         function createCheckboxes(courseList, categoryContainer) {
