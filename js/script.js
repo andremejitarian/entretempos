@@ -44,8 +44,8 @@ $(document).ready(function () {
         // Mapeia os passos para os IDs reais no HTML
         let stepId;
         if (stepNum === 1) stepId = '#step-1';
-        else if (stepNum === 2) stepId = '#step-2'; // Dados do Responsável
-        else if (stepNum === 3) stepId = '#step-3'; // Dados dos Aprendizes
+        else if (stepNum === 2) stepId = '#step-2'; // Dados dos Aprendizes
+        else if (stepNum === 3) stepId = '#step-3'; // Dados do Responsável
         else if (stepNum === 4) stepId = '#step-terms'; // Termos e Condições
         else if (stepNum === 5) stepId = '#step-4'; // Plano de Pagamento e Resumo
         else if (stepNum === 'success') stepId = '#step-success';
@@ -128,33 +128,7 @@ $(document).ready(function () {
         if (currentStep === 1) {
             // Nada a validar no passo de boas-vindas
             isValid = true;
-        } else if (currentStep === 2) { // Dados do Responsável (step-2)
-            elementsToValidate = [
-                $('#nomeResponsavel'),
-                $('#emailResponsavel'),
-                $('#telefoneResponsavel'),
-                $('#cpfResponsavel'),
-                $('#emergenciaQuemChamar')
-            ];
-
-            // Validação dos campos do responsável
-            isValid = validateField($('#nomeResponsavel'), null, 'Nome é obrigatório.') && isValid;
-            isValid = validateField($('#emailResponsavel'), (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), 'Email inválido.') && isValid;
-            isValid = validateField($('#telefoneResponsavel'), (val) => val.replace(/\D/g, '').length === 11, 'Telefone inválido.') && isValid;
-            isValid = validateField($('#cpfResponsavel'), (val) => isValidCPF(val), 'CPF inválido.') && isValid;
-            isValid = validateField($('#emergenciaQuemChamar'), null, 'Campo obrigatório.') && isValid;
-
-            // Validação "Como ficou sabendo"
-            const $howKnowCheckboxes = $('input[name="comoSoube"]');
-            const $howKnowErrorDiv = $('.how-know-error');
-            if ($howKnowCheckboxes.filter(':checked').length === 0) {
-                isValid = false;
-                $howKnowErrorDiv.text('Selecione pelo menos uma opção.').show();
-            } else {
-                $howKnowErrorDiv.hide().text('');
-            }
-
-        } else if (currentStep === 3) { // Dados dos Aprendizes (step-3)
+        } else if (currentStep === 2) { // Dados dos Aprendizes (step-2)
             const $apprenticeGroups = $('#apprenticesContainer .apprentice-group:not(.template)');
             if ($apprenticeGroups.length === 0) {
                 alert('É necessário adicionar pelo menos um aprendiz.');
@@ -166,13 +140,34 @@ $(document).ready(function () {
                 // Validar campos de cada aprendiz
                 isValid = validateField($group.find('.nomeAprendiz'), null, 'Nome do aprendiz é obrigatório.') && isValid;
                 isValid = validateField($group.find('.dataNascimentoAprendiz'), (val) => val.replace(/\D/g, '').length === 8, 'Data de nascimento inválida (DD/MM/AAAA).') && isValid;
-                isValid = validateField($group.find('.generoAprendiz'), (val) => val !== '', 'Selecione o gênero.') && isValid;
-                isValid = validateField($group.find('.restricaoAlimentarAprendiz'), null, 'Campo obrigatório.') && isValid;
-                isValid = validateField($group.find('.questaoSaudeAprendiz'), null, 'Campo obrigatório.') && isValid;
 
                 // Validação de cursos usando a nova função
                 isValid = validateApprenticesCourses($group) && isValid;
             });
+        } else if (currentStep === 3) { // Dados do Responsável (step-3)
+            elementsToValidate = [
+                $('#nomeResponsavel'),
+                $('#emailResponsavel'),
+                $('#telefoneResponsavel'),
+                $('#cpfResponsavel')
+            ];
+
+            // Validação dos campos do responsável
+            isValid = validateField($('#nomeResponsavel'), null, 'Nome é obrigatório.') && isValid;
+            isValid = validateField($('#emailResponsavel'), (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), 'Email inválido.') && isValid;
+            isValid = validateField($('#telefoneResponsavel'), (val) => val.replace(/\D/g, '').length === 11, 'Telefone inválido.') && isValid;
+            isValid = validateField($('#cpfResponsavel'), (val) => isValidCPF(val), 'CPF inválido.') && isValid;
+
+            // Validação "Como ficou sabendo"
+            const $howKnowCheckboxes = $('input[name="comoSoube"]');
+            const $howKnowErrorDiv = $('.how-know-error');
+            if ($howKnowCheckboxes.filter(':checked').length === 0) {
+                isValid = false;
+                $howKnowErrorDiv.text('Selecione pelo menos uma opção.').show();
+            } else {
+                $howKnowErrorDiv.hide().text('');
+            }
+
         } else if (currentStep === 4) { // Termos e Condições (step-terms)
             isValid = validateField($('#aceiteTermos'), null, 'Você deve aceitar os termos e condições.') && isValid;
 
@@ -279,11 +274,7 @@ $(document).ready(function () {
         // Preenche dados se houver prefilledData para este aprendiz
         if (apprenticeData) {
             $newApprentice.find('.nomeAprendiz').val(apprenticeData.nome);
-            $newApprentice.find('.escolaAprendiz').val(apprenticeData.escola);
             $newApprentice.find('.dataNascimentoAprendiz').val(apprenticeData.dataNascimento);
-            $newApprentice.find('.generoAprendiz').val(apprenticeData.genero);
-            $newApprentice.find('.restricaoAlimentarAprendiz').val(apprenticeData.restricaoAlimentar);
-            $newApprentice.find('.questaoSaudeAprendiz').val(apprenticeData.questaoSaude);
 
             // Seleciona os cursos. Os dados do webhook vêm com nomes, precisamos dos IDs
             if (apprenticeData.cursos && Array.isArray(apprenticeData.cursos)) {
@@ -343,12 +334,8 @@ $(document).ready(function () {
                 nome: $('#nomeResponsavel').val(),
                 cpf: $('#cpfResponsavel').val().replace(/\D/g, ''),
                 email: $('#emailResponsavel').val(),
-                telefone: $('#telefoneResponsavel').val().replace(/\D/g, ''),
-                endereco: $('#enderecoResponsavel').val(),
-                segundoResponsavelNome: $('#segundoResponsavelNome').val(),
-                segundoResponsavelTelefone: $('#segundoResponsavelTelefone').val().replace(/\D/g, '')
+                telefone: $('#telefoneResponsavel').val().replace(/\D/g, '')
             },
-            emergenciaQuemChamar: $('#emergenciaQuemChamar').val(),
             comoSoube: [],
             aprendizes: [],
             planoPagamento: $('#planoPagamento').val(),
@@ -368,12 +355,8 @@ $(document).ready(function () {
             const $group = $(this);
             const aprendiz = {
                 nome: $group.find('.nomeAprendiz').val(),
-                escola: $group.find('.escolaAprendiz').val(),
                 dataNascimento: $group.find('.dataNascimentoAprendiz').val(),
-                genero: $group.find('.generoAprendiz').val(),
-                cursos: getSelectedCourses($group), // Usa a nova função
-                restricaoAlimentar: $group.find('.restricaoAlimentarAprendiz').val(),
-                questaoSaude: $group.find('.questaoSaudeAprendiz').val()
+                cursos: getSelectedCourses($group) // Usa a nova função
             };
             formData.aprendizes.push(aprendiz);
         });
