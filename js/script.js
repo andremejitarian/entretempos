@@ -204,7 +204,7 @@ $(document).ready(function () {
 
         // Separa cursos e contraturnos
         const cursos = allCourses.filter(c => c.categoria === 'curso');
-        const contraturnos = allCourses.filter(c => c.categoria === 'contraturno');
+        const contraturnos = allCourses.filter(c => c.categoria === 'segunda');
 
         // Função para criar checkboxes
         function createCheckboxes(courseList, categoryContainer) {
@@ -237,7 +237,7 @@ $(document).ready(function () {
 
         // Cria checkboxes para cada categoria
         createCheckboxes(cursos, $container.find('[data-category="curso"]'));
-        createCheckboxes(contraturnos, $container.find('[data-category="contraturno"]'));
+        createCheckboxes(contraturnos, $container.find('[data-category="segunda"]'));
     }
 
     // Adiciona um novo grupo de aprendiz
