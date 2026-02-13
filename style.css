@@ -10,11 +10,11 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
-    /* Fundo suave da paleta */
+    background-color: #F3E6DC;
+    /* Background color */
     min-height: 100vh;
-    color: #5B5B5B;
-    /* Texto escuro da paleta */
+    color: #3A2316;
+    /* Text color */
     line-height: 1.6;
 }
 
@@ -22,7 +22,7 @@ body {
 .banner-top {
     width: 100%;
     height: 300px;
-    background-image: url('images/background.jpg');
+    background-image: url('https://res.cloudinary.com/ddjlqajrd/image/upload/v1770942588/Screenshot_2026-02-12_at_21.29.02_fkki2b.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -66,9 +66,10 @@ body {
 
 /* Card principal do formulário */
 .form-card {
-    background-color: #ffffff;
+    background-color: #FFF8F2;
+    /* Surface color */
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 60px rgba(156, 79, 46, 0.15);
     padding: 40px;
     width: 100%;
     padding-top: 80px;
@@ -86,7 +87,8 @@ body {
 .form-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #5B5B5B;
+    color: #3A2316;
+    /* Text color */
     margin-bottom: 15px;
     letter-spacing: -0.5px;
     text-align: left;
@@ -107,16 +109,16 @@ body {
 }
 
 .whatsapp-link {
-    color: #FAC622;
-    /* Amarelo de destaque */
+    color: #9C4F2E;
+    /* Primary color */
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .whatsapp-link:hover {
-    color: #FCD406;
-    /* Amarelo de destaque alternativo */
+    color: #C47A3A;
+    /* Accent color */
     text-decoration: underline;
 }
 
@@ -145,7 +147,8 @@ body {
 .step-title {
     font-size: 2rem;
     font-weight: 600;
-    color: #5B5B5B;
+    color: #3A2316;
+    /* Text color */
     text-align: center;
     margin-bottom: 30px;
     position: relative;
@@ -165,7 +168,8 @@ body {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #5B5B5B;
+    color: #3A2316;
+    /* Text color */
     font-size: 0.95rem;
 }
 
@@ -174,21 +178,23 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 15px 20px;
-    border: 2px solid #ddd;
+    border: 2px solid #E5D4C1;
     border-radius: 12px;
     font-size: 1rem;
     transition: all 0.3s ease;
-    background: #fdfdfd;
-    color: #5B5B5B;
+    background: #FFFFFF;
+    color: #3A2316;
+    /* Text color */
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #FAC622;
+    border-color: #9C4F2E;
+    /* Primary color */
     background: #ffffff;
-    box-shadow: 0 0 0 4px rgba(250, 198, 34, 0.1);
+    box-shadow: 0 0 0 4px rgba(156, 79, 46, 0.1);
     transform: translateY(-2px);
 }
 
@@ -234,7 +240,8 @@ body {
 
 .checkbox-group:hover,
 .radio-group:hover {
-    background-color: #F8F1C9;
+    background-color: #F3E6DC;
+    /* Background color */
 }
 
 .checkbox-group input[type="checkbox"],
@@ -243,7 +250,8 @@ body {
     height: 20px;
     margin: 0;
     cursor: pointer;
-    accent-color: #FAC622;
+    accent-color: #9C4F2E;
+    /* Primary color */
 }
 
 .checkbox-group label,
@@ -306,9 +314,10 @@ body {
 .btn-submit,
 .btn-add-apprentice,
 #goToPaymentBtn {
-    background: linear-gradient(135deg, #FAC622, #FCD406);
-    color: #5B5B5B;
-    box-shadow: 0 4px 15px rgba(250, 198, 34, 0.3);
+    background: linear-gradient(135deg, #9C4F2E, #C47A3A);
+    /* Primary to Accent gradient */
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(156, 79, 46, 0.3);
 }
 
 .btn-next:hover,
@@ -316,19 +325,22 @@ body {
 .btn-add-apprentice:hover,
 #goToPaymentBtn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(250, 198, 34, 0.4);
+    box-shadow: 0 8px 25px rgba(156, 79, 46, 0.4);
 }
 
 .btn-prev,
 .btn-remove-apprentice {
-    background: #f5f5f5;
-    color: #5B5B5B;
-    border: 2px solid #ddd;
+    background: #F3E6DC;
+    /* Background color */
+    color: #3A2316;
+    /* Text color */
+    border: 2px solid #E5D4C1;
 }
 
 .btn-prev:hover,
 .btn-remove-apprentice:hover {
-    background: #A0A0A0;
+    background: #C47A3A;
+    /* Accent color */
     color: #ffffff;
     transform: translateY(-2px);
 }
@@ -357,8 +369,8 @@ body {
 }
 
 .apprentice-group {
-    background: #ffffff;
-    border: 2px solid #ffffff;
+    background: #FFFFFF;
+    border: 2px solid #E5D4C1;
     border-radius: 16px;
     padding: 30px;
     margin-bottom: 30px;
@@ -367,18 +379,20 @@ body {
 }
 
 .apprentice-group:hover {
-    border-color: #ffffff;
-    box-shadow: 0 8px 25px rgba(250, 198, 34, 0.1);
+    border-color: #C47A3A;
+    /* Accent color */
+    box-shadow: 0 8px 25px rgba(156, 79, 46, 0.1);
 }
 
 .apprentice-group h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #5B5B5B;
+    color: #3A2316;
+    /* Text color */
     text-align: center;
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #E5D4C1;
 }
 
 /* Select múltiplo */
@@ -411,8 +425,8 @@ body {
 
 /* Seção de resumo */
 .summary-section {
-    background: #ffffff;
-    border: none;
+    background: #FFFFFF;
+    border: 2px solid #E5D4C1;
     border-radius: 16px;
     padding: 30px;
     margin-top: 40px;
@@ -421,7 +435,8 @@ body {
 .summary-section h3 {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #5B5B5B;
+    color: #3A2316;
+    /* Text color */
     text-align: center;
     margin-bottom: 25px;
 }
@@ -439,7 +454,8 @@ body {
 #summaryApprenticesList li {
     padding: 8px 0;
     font-size: 1rem;
-    color: #5B5B5B;
+    color: #3A2316;
+    /* Text color */
     margin-bottom: 25px;
     /* Espaço entre diferentes aprendizes */
 }
@@ -454,7 +470,8 @@ body {
     display: block;
     margin-bottom: 10px;
     font-weight: 600;
-    color: #5B5B5B;
+    color: #3A2316;
+    /* Text color */
 }
 
 /* Cada curso em linha separada com indentação */
@@ -479,18 +496,22 @@ body {
 .price-details .total-price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #5B5B5B;
+    color: #3A2316;
+    /* Text color */
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 3px solid #FAC622;
+    border-top: 3px solid #9C4F2E;
+    /* Primary color */
     margin-bottom: 10px;
 }
 
 .price-notes {
-    background-color: #fff9e6;
+    background-color: #FFF8F2;
+    /* Surface color */
     padding: 15px;
     border-radius: 8px;
-    border-left: 4px solid #FAC622;
+    border-left: 4px solid #9C4F2E;
+    /* Primary color */
     margin-top: 15px;
 }
 
@@ -679,10 +700,11 @@ body {
 }
 
 .courses-selection {
-    border: 1px solid #ddd;
+    border: 1px solid #E5D4C1;
     border-radius: 8px;
     padding: 15px;
-    background: #f9f9f9;
+    background: #FFF8F2;
+    /* Surface color */
 }
 
 .course-category {
@@ -738,9 +760,11 @@ body {
 #summaryApprenticesList li {
     margin-bottom: 15px;
     padding: 10px;
-    background-color: #f8f9fa;
+    background-color: #FFF8F2;
+    /* Surface color */
     border-radius: 8px;
-    border-left: 4px solid #FCD406;
+    border-left: 4px solid #9C4F2E;
+    /* Primary color */
 }
 
 #summaryApprenticesList li strong {

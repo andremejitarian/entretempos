@@ -15,7 +15,8 @@
     <div class="main-container">
         <!-- Logo circular que "salta" do card -->
         <div class="logo-circle">
-            <img src="images/logo.png" alt="Logo Quintal das Artes">
+            <img src="https://res.cloudinary.com/ddjlqajrd/image/upload/v1770939827/entretempos_vfwojk.jpg"
+                alt="Logo Entretempos">
         </div>
 
         <div class="form-card form-container">
@@ -44,108 +45,8 @@
                     </div>
                 </div>
 
-                <!-- ETAPA 2: Dados do Responsável -->
+                <!-- ETAPA 2: Dados dos Aprendizes -->
                 <div class="form-step" id="step-2">
-                    <h2 class="step-title">Dados do Responsável</h2>
-
-                    <div class="form-fields">
-                        <div class="form-group">
-                            <label for="nomeResponsavel">Nome Completo do Responsável *</label>
-                            <input type="text" id="nomeResponsavel" name="nomeResponsavel" required>
-                            <div class="error-message">Este campo é obrigatório</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cpfResponsavel">CPF do Responsável *</label>
-                            <input type="text" id="cpfResponsavel" name="cpfResponsavel" class="mask-cpf" required>
-                            <div class="error-message">CPF inválido</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="emailResponsavel">E-mail *</label>
-                            <input type="email" id="emailResponsavel" name="emailResponsavel" required>
-                            <div class="error-message">E-mail inválido</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="telefoneResponsavel">Telefone/WhatsApp *</label>
-                            <input type="tel" id="telefoneResponsavel" name="telefoneResponsavel" class="mask-phone"
-                                required>
-                            <div class="error-message">Telefone inválido</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="enderecoResponsavel">Endereço Completo</label>
-                            <textarea id="enderecoResponsavel" name="enderecoResponsavel" rows="3"
-                                placeholder="Rua, número, bairro, cidade, CEP"></textarea>
-                            <div class="error-message">Este campo é obrigatório</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="segundoResponsavelNome">Nome do Segundo Responsável (opcional)</label>
-                            <input type="text" id="segundoResponsavelNome" name="segundoResponsavelNome">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="segundoResponsavelTelefone">Telefone do Segundo Responsável (opcional)</label>
-                            <input type="tel" id="segundoResponsavelTelefone" name="segundoResponsavelTelefone"
-                                class="mask-phone">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="emergenciaQuemChamar">Em caso de emergência, quem chamar? *</label>
-                            <input type="text" id="emergenciaQuemChamar" name="emergenciaQuemChamar"
-                                placeholder="Nome e telefone" required>
-                            <div class="error-message">Este campo é obrigatório</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Como ficou sabendo do Quintal das Artes? *</label>
-                            <div class="checkbox-group-container">
-                                <div class="checkbox-group">
-                                    <input type="checkbox" name="comoSoube" value="indicacao-amigos"
-                                        id="indicacao-amigos">
-                                    <label for="indicacao-amigos">Indicação de amigos/família</label>
-                                </div>
-                                <div class="checkbox-group">
-                                    <input type="checkbox" name="comoSoube" value="redes-sociais" id="redes-sociais">
-                                    <label for="redes-sociais">Redes sociais</label>
-                                </div>
-                                <div class="checkbox-group">
-                                    <input type="checkbox" name="comoSoube" value="google" id="google">
-                                    <label for="google">Busca no Google</label>
-                                </div>
-                                <div class="checkbox-group">
-                                    <input type="checkbox" name="comoSoube" value="escola" id="escola">
-                                    <label for="escola">Escola/Instituição</label>
-                                </div>
-                                <div class="checkbox-group">
-                                    <input type="checkbox" name="comoSoube" value="evento" id="evento">
-                                    <label for="evento">Evento/Feira</label>
-                                </div>
-                                <div class="checkbox-group">
-                                    <input type="checkbox" name="comoSoube" value="outros" id="outros">
-                                    <label for="outros">Outros</label>
-                                </div>
-                            </div>
-                            <div class="error-message how-know-error">Selecione pelo menos uma opção</div>
-                        </div>
-                    </div>
-
-                    <div class="form-navigation">
-                        <button type="button" class="btn btn-prev">
-                            <span>←</span>
-                            Voltar
-                        </button>
-                        <button type="button" class="btn btn-next">
-                            Avançar
-                            <span>→</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- ETAPA 3: Dados dos Aprendizes -->
-                <div class="form-step" id="step-3">
                     <h2 class="step-title">Dados do(s) Aprendiz(es)</h2>
 
                     <div id="apprenticesContainer">
@@ -212,14 +113,6 @@
                                 <div class="error-message">Este campo é obrigatório</div>
                             </div>
 
-                            <div class="form-group">
-                                <label>Questões de Saúde *</label>
-                                <textarea class="questaoSaudeAprendiz" rows="2"
-                                    placeholder="Descreva qualquer questão de saúde relevante ou digite 'Nenhuma'"
-                                    required></textarea>
-                                <div class="error-message">Este campo é obrigatório</div>
-                            </div>
-
                             <button type="button" class="btn btn-remove-apprentice" style="display: none;">
                                 Remover Aprendiz
                             </button>
@@ -229,6 +122,81 @@
                     <button type="button" class="btn btn-add-apprentice">
                         + Adicionar Outro Aprendiz
                     </button>
+
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-prev">
+                            <span>←</span>
+                            Voltar
+                        </button>
+                        <button type="button" class="btn btn-next">
+                            Avançar
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 3: Dados do Responsável -->
+                <div class="form-step" id="step-3">
+                    <h2 class="step-title">Dados do Responsável</h2>
+
+                    <div class="form-fields">
+                        <div class="form-group">
+                            <label for="nomeResponsavel">Nome Completo do Responsável *</label>
+                            <input type="text" id="nomeResponsavel" name="nomeResponsavel" required>
+                            <div class="error-message">Este campo é obrigatório</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cpfResponsavel">CPF do Responsável *</label>
+                            <input type="text" id="cpfResponsavel" name="cpfResponsavel" class="mask-cpf" required>
+                            <div class="error-message">CPF inválido</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailResponsavel">E-mail *</label>
+                            <input type="email" id="emailResponsavel" name="emailResponsavel" required>
+                            <div class="error-message">E-mail inválido</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefoneResponsavel">Telefone/WhatsApp *</label>
+                            <input type="tel" id="telefoneResponsavel" name="telefoneResponsavel" class="mask-phone"
+                                required>
+                            <div class="error-message">Telefone inválido</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Como ficou sabendo do Quintal das Artes? *</label>
+                            <div class="checkbox-group-container">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" name="comoSoube" value="indicacao-amigos"
+                                        id="indicacao-amigos">
+                                    <label for="indicacao-amigos">Indicação de amigos/família</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" name="comoSoube" value="redes-sociais" id="redes-sociais">
+                                    <label for="redes-sociais">Redes sociais</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" name="comoSoube" value="google" id="google">
+                                    <label for="google">Busca no Google</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" name="comoSoube" value="escola" id="escola">
+                                    <label for="escola">Escola/Instituição</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" name="comoSoube" value="evento" id="evento">
+                                    <label for="evento">Evento/Feira</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" name="comoSoube" value="outros" id="outros">
+                                    <label for="outros">Outros</label>
+                                </div>
+                            </div>
+                            <div class="error-message how-know-error">Selecione pelo menos uma opção</div>
+                        </div>
+                    </div>
 
                     <div class="form-navigation">
                         <button type="button" class="btn btn-prev">
