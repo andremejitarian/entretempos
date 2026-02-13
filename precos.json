@@ -1,6 +1,6 @@
 {
   "planos": {
-      "experimental": {
+    "experimental": {
       "nome": "Experimental",
       "descricao": "Pagamento por aula",
       "meses": 1,
@@ -34,25 +34,11 @@
       "meses": 12,
       "parcelas": 12,
       "taxaCartaoPercentual": 0.0421
-    },
-    "4_aulas": {
-      "nome": "Pacote 4 aulas",
-      "descricao": "Direito a 4 aulas",
-      "meses": 1,
-      "parcelas": 1,
-      "taxaCartaoPercentual": 0.0421
-    },
-    "8_aulas": {
-      "nome": "Pacote 8 aulas",
-      "descricao": "Direito a 8 aulas",
-      "meses": 1,
-      "parcelas": 1,
-      "taxaCartaoPercentual": 0.0421
     }
   },
   "cursos": {
-    "musicalizacao_segunda_manha": {
-      "nome": "MUSICALIZAÇÃO // segunda 8h30-9H45 // 7-11 anos",
+    "encontrando_historias_segunda_0740": {
+      "nome": "Encontrando as próprias histórias // segunda 07h40 // Adulto",
       "categoria": "curso",
       "precos": {
         "experimental": 19,
@@ -62,249 +48,426 @@
         "anual": 212.50
       }
     },
-    "desenho_segunda_manha": {
-      "nome": "DESENHO // segunda 10h-11h15 // 7-11 anos",
+    "danca_livre_segunda_0900": {
+      "nome": "Dança Livre // segunda 09h00 // Adulto",
       "categoria": "curso",
       "precos": {
         "experimental": 19,
-        "avulso": 75,
-        "mensal": 265,
-        "semestral": 238.50,
-        "anual": 225.25
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
       }
     },
-    "artes_segunda_tarde": {
-      "nome": "ARTES // segunda 14h-17H // 7-11 anos",
+    "ritmos_segunda_1000": {
+      "nome": "Ritmos // segunda 10h00 // Adulto",
       "categoria": "curso",
       "precos": {
         "experimental": 19,
-        "avulso": 85,
-        "mensal": 310,
-        "semestral": 279,
-        "anual": 263.50
-      }
-    },
-    "jogos_ingles_terca_tarde": {
-      "nome": "JOGOS > INGLÊS // terca 14h-15H30 // 6-11 anos",
-      "categoria": "curso",
-      "precos": {
-        "experimental": 19,        
-        "avulso": 76,
-        "mensal": 280,
-        "semestral": 252,
-        "anual": 238
-      }
-    },
-    "musicalizacao_terca_tarde": {
-      "nome": "MUSICALIZAÇÃO // terça 18h-19h // 7-11 anos",
-      "categoria": "curso",
-      "precos": {
-        "experimental": 19,        
         "avulso": 76,
         "mensal": 250,
         "semestral": 225,
         "anual": 212.50
       }
     },
-    "musicalizacao_quarta_manha": {
-      "nome": "MUSICALIZAÇÃO // quarta 8h30-9H45 // 7-11 anos",
+    "teatro_infantil_segunda_1410": {
+      "nome": "Teatro infantil // segunda 14h10 // Infantil",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
         "mensal": 250,
         "semestral": 225,
         "anual": 212.50
       }
     },
-    "trabalhos_manuais_quarta_manha": {
-      "nome": "TRABALHOS MANUAIS // quarta 10h-11h15 // 7-11 anos",
+    "danca_segunda_1530": {
+      "nome": "Dança // segunda 15h30 // 10-13 anos",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
         "mensal": 250,
         "semestral": 225,
         "anual": 212.50
       }
     },
-    "desenho_quarta_tarde_t1": {
-      "nome": "DESENHO // quarta 14h-15h30 // 6-10 anos",
+    "capoeira_segunda_1745": {
+      "nome": "Capoeira // segunda 17h45",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
-        "avulso": 75,
-        "mensal": 265,
-        "semestral": 238.50,
-        "anual": 225.25
-      }
-    },
-    "trabalhos_manuais_quarta_tarde": {
-      "nome": "TRABALHOS MANUAIS // quarta 16h-17h15 // 6-10 anos",
-      "categoria": "curso",
-      "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
         "mensal": 250,
         "semestral": 225,
         "anual": 212.50
       }
     },
-    "desenho_quarta_tarde_t2": {
-      "nome": "DESENHO // quarta 18h-19h15 // 12-15 anos",
+    "danca_dois_segunda_1900": {
+      "nome": "Dança a dois // segunda 19h00 // Adulto",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
-        "avulso": 75,
-        "mensal": 265,
-        "semestral": 238.50,
-        "anual": 225.25
-      }
-    },
-    "musicalizacao_quinta_tarde": {
-      "nome": "MUSICALIZAÇÃO // quarta 18h-19h // 7-11 anos",
-      "categoria": "curso",
-      "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
         "mensal": 250,
         "semestral": 225,
         "anual": 212.50
       }
     },
-    "musica_ingles_quinta_manha": {
-      "nome": "MUSICA > INGLÊS // quinta 9h30-11h // 5-8 anos",
+    "ritmos_terca_0800": {
+      "nome": "Ritmos // terça 08h00 // Adulto",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
-        "mensal": 350,
-        "semestral": 330,
-        "anual": 300
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
       }
     },
-   "musica_ingles_sexta_manha": {
-      "nome": "MUSICA > INGLÊS // sexta 9h30-11h // 5-8 anos",
+    "danca_livre_terca_0900": {
+      "nome": "Dança Livre // terça 09h00 // Adulto",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
-        "mensal": 350,
-        "semestral": 330,
-        "anual": 300
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
       }
     },
-    "modelagem_argila_sexta_manha": {
-      "nome": "MODELAGEM EM ARGILA // sexta 10h-11h30 // 7-11 anos",
+    "danca_terca_1000": {
+      "nome": "Dança // terça 10h00 // 5-7 anos",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
-        "mensal": 265,
-        "semestral": 238.50,
-        "anual": 225.25
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
       }
     },
-    "jogos_ingles_t1_sexta_tarde": {
-      "nome": "JOGOS > INGLÊS // sexta 14h-15h30 // 6-11 anos",
+    "swasthya_yoga_terca_1100": {
+      "nome": "SwaSthya Yoga // terça 11h00",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
-        "mensal": 280,
-        "semestral": 252,
-        "anual": 238
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
       }
     },
-    "jogos_ingles_t2_sexta_tarde": {
-      "nome": "JOGOS > INGLÊS // sexta 16h-17h30 // 6-11 anos",
+    "danca_livre_terca_1430": {
+      "nome": "Dança Livre // terça 14h30 // 5-7 anos",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
-        "mensal": 280,
-        "semestral": 252,
-        "anual": 238
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
       }
     },
-    "modelagem_argila_t1_sexta_tarde": {
-      "nome": "MODELAGEM EM ARGILA // sexta 14h-15h30 // 6-11 anos",
+    "danca_livre_terca_1530": {
+      "nome": "Dança Livre // terça 15h30 // 7-9 anos",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
-        "mensal": 265,
-        "semestral": 238.50,
-        "anual": 225.25
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
       }
     },
-    "modelagem_argila_t2_sexta_tarde": {
-      "nome": "MODELAGEM EM ARGILA // sexta 16h-17h30 // 6-11 anos",
+    "danca_livre_terca_1630": {
+      "nome": "Dança Livre // terça 16h30 // 9-13 anos",
       "categoria": "curso",
       "precos": {
-        "experimental": 19,        
+        "experimental": 19,
         "avulso": 76,
-        "mensal": 265,
-        "semestral": 238.50,
-        "anual": 225.25
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
       }
     },
-    "parkour_sabado_tarde": {
-      "nome": "PARKOUR // sábado 16h-17h30 // 6-12 anos",
+    "swasthya_yoga_terca_1730": {
+      "nome": "SwaSthya Yoga // terça 17h30",
       "categoria": "curso",
       "precos": {
+        "experimental": 19,
         "avulso": 76,
-        "4_aulas": 304,
-        "8_aulas": 608
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "capoeira_terca_1900": {
+      "nome": "Capoeira // terça 19h00 // Adulto",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "swasthya_yoga_quarta_0700": {
+      "nome": "SwaSthya Yoga // quarta 07h00",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "influi_quarta_0800": {
+      "nome": "InFlui // quarta 08h00",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "yoga_aereo_quarta_0900": {
+      "nome": "Yoga Aéreo // quarta 09h00 // Adulto",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "yoga_melhor_idade_quarta_1400": {
+      "nome": "Yoga Melhor Idade // quarta 14h00 // Melhor idade",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "danca_quarta_1530": {
+      "nome": "Dança // quarta 15h30 // 10-13 anos",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "ritmos_quarta_1630": {
+      "nome": "Ritmos // quarta 16h30 // Adulto",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "teatro_jovem_quarta_1730": {
+      "nome": "Teatro jovem // quarta 17h30 // Jovens/adolescentes",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "embarque_cultural_quarta_1900": {
+      "nome": "Embarque Cultural // quarta 19h00",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "danca_livre_quinta_0800": {
+      "nome": "Dança Livre // quinta 08h00",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "afro_pop_quinta_0900": {
+      "nome": "Afro Pop // quinta 09h00",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "danca_quinta_1000": {
+      "nome": "Dança // quinta 10h00 // 5-7 anos",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "swasthya_yoga_quinta_1100": {
+      "nome": "SwaSthya Yoga // quinta 11h00",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "danca_quinta_1430": {
+      "nome": "Dança // quinta 14h30 // 5-7 anos",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "danca_quinta_1530": {
+      "nome": "Dança // quinta 15h30 // 7-9 anos",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "danca_saia_quinta_1630": {
+      "nome": "Dança de Saia // quinta 16h30",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "yoga_aereo_quinta_1800": {
+      "nome": "Yoga Aéreo // quinta 18h00 // Jovens",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "teatro_quinta_1900": {
+      "nome": "Teatro // quinta 19h00 // Adulto",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "swasthya_yoga_sexta_0700": {
+      "nome": "SwaSthya Yoga // sexta 07h00",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "influi_sexta_0800": {
+      "nome": "InFlui // sexta 08h00",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "ritmos_sexta_0900": {
+      "nome": "Ritmos // sexta 09h00 // Adulto",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "brincadanca_sexta_1530": {
+      "nome": "Brincadança // sexta 15h30 // 2-4 anos",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "danca_sexta_1630": {
+      "nome": "Dança // sexta 16h30 // 9-13 anos",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
+      }
+    },
+    "ritmos_sexta_1730": {
+      "nome": "Ritmos // sexta 17h30 // Adulto",
+      "categoria": "curso",
+      "precos": {
+        "experimental": 19,
+        "avulso": 76,
+        "mensal": 250,
+        "semestral": 225,
+        "anual": 212.50
       }
     }
   },
-  "contraturnos": {
-    "artes_brincar_terca_manha": {
-      "nome": "ARTES + BRINCAR // terca 8h-11H30 // 3-7 anos",
-      "categoria": "contraturnos",
-      "precos": {
-        "experimental": 19,        
-        "avulso": 82,
-        "mensal": 285,
-        "semestral": 256.50,
-        "anual": 242.25
-      }
-    },
-    "artes_brincar_terca_tarde": {
-      "nome": "ARTES + BRINCAR // terca 13h-17H30 // 3-7 anos",
-      "categoria": "contraturnos",
-      "precos": {
-        "experimental": 19,        
-        "avulso": 86,
-        "mensal": 300,
-        "semestral": 270,
-        "anual": 255
-      }
-    },
-    "artes_brincar_quinta_manha": {
-      "nome": "ARTES + BRINCAR // quinta 8h-11h30 // 3-7 anos",
-      "categoria": "contraturnos",
-      "precos": {
-        "experimental": 19,        
-        "avulso": 82,
-        "mensal": 285,
-        "semestral": 256.50,
-        "anual": 242.25
-      }
-    },
-    "artes_brincar_quinta_tarde": {
-      "nome": "ARTES + BRINCAR // quinta 13h-17h30 // 3-7 anos",
-      "categoria": "contraturnos",
-      "precos": {
-        "experimental": 19,        
-        "avulso": 86,
-        "mensal": 300,
-        "semestral": 270,
-        "anual": 255
-      }
-    }
-  },
+  "contraturnos": {},
   "descontos": {
     "irmaos": {
       "nome": "Irmãos",
