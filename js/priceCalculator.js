@@ -3,6 +3,23 @@
 let pricesData = null;
 let couponsData = null;
 
+const frequencyFieldMapping = {
+    '1x_semana': 'precos_1x_semana',
+    '2x_semana': 'precos_2x_semana'
+};
+
+function getFrequencyPrices(frequencyKey = '1x_semana') {
+    if (!pricesData) return null;
+    const fieldName = frequencyFieldMapping[frequencyKey] || frequencyFieldMapping['1x_semana'];
+    return pricesData[fieldName] || pricesData[frequencyFieldMapping['1x_semana']] || null;
+}
+
+function getPlanPriceByFrequency(planKey, frequencyKey = '1x_semana') {
+    const frequencyPrices = getFrequencyPrices(frequencyKey);
+    if (!frequencyPrices) return 0;
+    return frequencyPrices[planKey] ?? 0;
+}
+
 // Função para carregar os dados JSON
 async function loadPriceData() {
     try {
@@ -62,20 +79,15 @@ function getAllCourses() {
  * @param {string} planKey - Chave do plano (mensal, bimestral, trimestral)
  * @returns {number} Preço do curso para o plano
  */
-function getCoursePrice(courseId, planKey) {
+function getCoursePrice(courseId, planKey, frequencyKey = '1x_semana') {
     if (!pricesData) return 0;
 
-    // Verifica se é um curso
-    if (pricesData.cursos[courseId]) {
-        return pricesData.cursos[courseId].precos[planKey] || 0;
+    const courseEntry = pricesData.cursos[courseId] || pricesData.contraturnos[courseId];
+    if (!courseEntry || !courseEntry.precos || !Object.prototype.hasOwnProperty.call(courseEntry.precos, planKey)) {
+        return 0;
     }
 
-    // Verifica se é um contraturno
-    if (pricesData.contraturnos[courseId]) {
-        return pricesData.contraturnos[courseId].precos[planKey] || 0;
-    }
-
-    return 0;
+    return getPlanPriceByFrequency(planKey, frequencyKey);
 }
 
 /**
@@ -116,7 +128,7 @@ function getCourseById(courseId) {
  * @param {number} apprenticesCount - Número de aprendizes (para desconto de irmãos)
  * @returns {Object} Objeto contendo detalhes do cálculo
  */
-function calculateTotal(selectedCourseIds, paymentPlanKey, couponCode, paymentMethod = '', apprenticesCount = 1) {
+function calculateTotal(selectedCourseIds, paymentPlanKey, couponCode, paymentMethod = '', apprenticesCount = 1, classesPerWeekKey = '1x_semana') {
     if (!pricesData || !couponsData) {
         console.error("Dados de preços ou cupons não carregados.");
         return {
@@ -137,7 +149,7 @@ function calculateTotal(selectedCourseIds, paymentPlanKey, couponCode, paymentMe
     // 1. Calcular subtotal e coletar detalhes dos cursos
     if (selectedCourseIds && selectedCourseIds.length > 0) {
         selectedCourseIds.forEach(courseId => {
-            const price = getCoursePrice(courseId, paymentPlanKey);
+            const price = getCoursePrice(courseId, paymentPlanKey, classesPerWeekKey);
             const courseName = getCourseNameById(courseId);
 
             subtotal += price;
@@ -356,11 +368,11 @@ function getAllPaymentPlans() {
  * @param {string} courseId - ID do curso
  * @returns {number} Percentual de desconto (0 a 1)
  */
-function calculatePlanDiscount(planKey, courseId) {
+function calculatePlanDiscount(planKey, courseId, frequencyKey = '1x_semana') {
     if (!pricesData || planKey === 'mensal') return 0;
 
-    const monthlyPrice = getCoursePrice(courseId, 'mensal');
-    const planPrice = getCoursePrice(courseId, planKey);
+    const monthlyPrice = getCoursePrice(courseId, 'mensal', frequencyKey);
+    const planPrice = getCoursePrice(courseId, planKey, frequencyKey);
 
     if (monthlyPrice === 0) return 0;
 
@@ -390,6 +402,8 @@ window.priceCalculator = {
 
     // Funções utilitárias
     formatCurrency,
+    getPlanPriceByFrequency,
+    getFrequencyPrices,
 
     // Getters para dados brutos
     getPricesData: () => pricesData,

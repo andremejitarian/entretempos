@@ -244,6 +244,48 @@ body {
     /* Background color */
 }
 
+.frequency-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.frequency-option {
+    flex: 1;
+    min-width: 220px;
+    border: 2px solid #E5D4C1;
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: #fff8f2;
+    transition: border 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.frequency-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    accent-color: #C47A3A;
+}
+
+.frequency-option strong {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.frequency-option span {
+    font-size: 0.9rem;
+    color: #65513f;
+    line-height: 1.4;
+}
+
+.frequency-option:hover {
+    border-color: #C47A3A;
+    transform: translateY(-2px);
+}
+
 .checkbox-group input[type="checkbox"],
 .radio-group input[type="radio"] {
     width: 20px;
@@ -714,6 +756,19 @@ body {
     color: #333;
     font-size: 1rem;
     font-weight: 600;
+}
+
+.frequency-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #3A2316;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px dashed #9C4F2E;
+    background: #fffefc;
 }
 
 .course-plans-prices {

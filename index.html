@@ -48,6 +48,27 @@
                 <div class="form-step" id="step-2">
                     <h2 class="step-title">Dados do(s) Aprendiz(es)</h2>
 
+                    <div class="form-group frequency-selection-group">
+                        <label>Frequência semanal preferida *</label>
+                        <div class="frequency-selection">
+                            <label class="radio-group frequency-option">
+                                <input type="radio" name="classesPerWeek" value="1x_semana" data-label="1 aula por semana" checked required>
+                                <div>
+                                    <strong>1x por semana</strong>
+                                    <span>Valores suavizados e ritmo mais leve.</span>
+                                </div>
+                            </label>
+                            <label class="radio-group frequency-option">
+                                <input type="radio" name="classesPerWeek" value="2x_semana" data-label="2 aulas por semana">
+                                <div>
+                                    <strong>2x por semana</strong>
+                                    <span>Mais imersão e prática ao longo da semana.</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="error-message frequency-error">Selecione a frequência de aulas desejada.</div>
+                    </div>
+
                     <div id="apprenticesContainer">
                         <!-- Template para aprendiz (será clonado pelo JavaScript) -->
                         <div class="apprentice-group template" style="display: none;">
@@ -246,6 +267,10 @@
                             <ul id="summaryApprenticesList">
                                 <!-- Preenchido pelo JavaScript -->
                             </ul>
+                        </div>
+                        <div class="form-group">
+                            <label>Frequência semanal escolhida:</label>
+                            <p id="summaryFrequency" class="frequency-badge">1 aula por semana</p>
                         </div>
 
                         <div class="form-group">

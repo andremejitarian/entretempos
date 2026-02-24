@@ -119,6 +119,28 @@ $(document).ready(function () {
         return selectedCourses;
     }
 
+    function getSelectedClassesPerWeek() {
+        const selectedValue = $('input[name="classesPerWeek"]:checked').val();
+        return selectedValue || '1x_semana';
+    }
+
+    function getSelectedClassesPerWeekLabel() {
+        const label = $('input[name="classesPerWeek"]:checked').data('label');
+        if (label) return label;
+        return getSelectedClassesPerWeek() === '2x_semana' ? '2 aulas por semana' : '1 aula por semana';
+    }
+
+    function refreshCoursePriceTags() {
+        const frequencyKey = getSelectedClassesPerWeek();
+        $('.plan-price-tag').each(function () {
+            const $tag = $(this);
+            const planKey = $tag.data('plan-key');
+            const planName = $tag.data('plan-name') || (priceCalculator.getPaymentPlanInfo(planKey)?.nome || planKey);
+            const price = priceCalculator.getPlanPriceByFrequency(planKey, frequencyKey);
+            $tag.html(`<strong>${planName}:</strong> ${priceCalculator.formatCurrency(price)}`);
+        });
+    }
+
     // Valida o passo atual antes de avançar
     function validateCurrentStep() {
         let isValid = true;
@@ -143,6 +165,14 @@ $(document).ready(function () {
                 // Validação de cursos usando a nova função
                 isValid = validateApprenticesCourses($group) && isValid;
             });
+
+            const $frequencyError = $('.frequency-error');
+            if (!getSelectedClassesPerWeek()) {
+                $frequencyError.text('Selecione a frequência de aulas desejada.').show();
+                isValid = false;
+            } else {
+                $frequencyError.hide().text('');
+            }
         } else if (currentStep === 3) { // Dados do Responsável (step-3)
             elementsToValidate = [
                 $('#nomeResponsavel'),
@@ -197,6 +227,7 @@ $(document).ready(function () {
     function populateCourseSelection($container) {
         const allCourses = priceCalculator.getAllCourses();
         const apprenticeNumber = $container.closest('.apprentice-group').find('.apprentice-number').text();
+        const frequencyKey = getSelectedClassesPerWeek();
 
         // Limpa containers existentes
         $container.find('.courses-checkboxes').empty();
@@ -211,11 +242,12 @@ $(document).ready(function () {
                 const uniqueId = `course-${course.id}-${apprenticeNumber}`;
 
                 // Gerar lista de todos os planos e preços disponíveis para o curso
-                const pricesHtml = Object.entries(course.precos)
-                    .map(([planKey, price]) => {
+                const pricesHtml = Object.keys(course.precos)
+                    .map((planKey) => {
                         const planInfo = priceCalculator.getPaymentPlanInfo(planKey);
                         const planName = planInfo ? planInfo.nome : planKey;
-                        return `<span class="plan-price-tag"><strong>${planName}:</strong> ${priceCalculator.formatCurrency(price)}</span>`;
+                        const planPrice = priceCalculator.getPlanPriceByFrequency(planKey, frequencyKey);
+                        return `<span class="plan-price-tag" data-plan-key="${planKey}" data-plan-name="${planName}"><strong>${planName}:</strong> ${priceCalculator.formatCurrency(planPrice)}</span>`;
                     }).join(' <span class="price-separator">|</span> ');
 
                 const checkboxHtml = `
@@ -339,6 +371,8 @@ $(document).ready(function () {
             aprendizes: [],
             planoPagamento: $('#planoPagamento').val(),
             formaPagamento: $('#formaPagamento').val(),
+            frequenciaAulasSemana: getSelectedClassesPerWeek(),
+            frequenciaAulasSemanaLabel: getSelectedClassesPerWeekLabel(),
             diaVencimento: ($('#formaPagamento').val() === 'PIX/Boleto') ? $('#diaVencimento').val() : '',
             aceiteTermos: $('#aceiteTermos').is(':checked'),
             autorizaFoto: $('input[name="autorizaFoto"]:checked').val(),
@@ -380,7 +414,8 @@ $(document).ready(function () {
             aprendizes: detalhesAprendizesParaBackend,
             planoPagamento: formData.planoPagamento,
             cupomAplicado: formData.cupomCode,
-            valorFinal: formData.valor_calculado_total
+            valorFinal: formData.valor_calculado_total,
+            frequenciaAulasSemana: formData.frequenciaAulasSemanaLabel
         });
 
         return formData;
@@ -396,6 +431,7 @@ $(document).ready(function () {
 
         // OBTENHA O PLANO DE PAGAMENTO AQUI, ANTES DE ITERAR PELOS APRENDIZES
         const paymentPlan = $('#planoPagamento').val() || 'avulso'; // 'avulso' como padrão
+        const classesPerWeekKey = getSelectedClassesPerWeek();
 
         // Atualiza a política de cancelamento com base no plano selecionado
         updateCancellationPolicy(paymentPlan);
@@ -412,7 +448,7 @@ $(document).ready(function () {
                 allSelectedCourseIds.push(courseId);
                 const courseName = priceCalculator.getCourseNameById(courseId);
                 // Pegar o preço do curso para o plano de pagamento selecionado
-                const coursePrice = priceCalculator.getCoursePrice(courseId, paymentPlan);
+                const coursePrice = priceCalculator.getCoursePrice(courseId, paymentPlan, classesPerWeekKey);
 
                 if (coursePrice === 0) {
                     coursesDetails.push(`
@@ -441,7 +477,8 @@ $(document).ready(function () {
             paymentPlan,
             couponCode,
             paymentMethod,
-            apprenticesCount
+            apprenticesCount,
+            classesPerWeekKey
         );
 
         // Atualiza a lista de aprendizes no resumo
@@ -457,6 +494,11 @@ $(document).ready(function () {
             });
         } else {
             $summaryList.append(`<li>Nenhum aprendiz adicionado</li>`);
+        }
+
+        const $summaryFrequency = $('#summaryFrequency');
+        if ($summaryFrequency.length) {
+            $summaryFrequency.text(getSelectedClassesPerWeekLabel());
         }
 
         // Atualiza os valores financeiros usando formatCurrency
@@ -684,6 +726,12 @@ $(document).ready(function () {
 
         $('#apprenticesContainer').on('click', '.btn-remove-apprentice', function () {
             removeApprentice(this);
+        });
+
+        $('input[name="classesPerWeek"]').on('change', function () {
+            $('.frequency-error').hide().text('');
+            refreshCoursePriceTags();
+            updateSummaryAndTotal();
         });
 
         // Disparar cálculo ao mudar seleção de curso, plano ou cupom
