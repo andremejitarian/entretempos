@@ -10,8 +10,7 @@ $(document).ready(function () {
     let prefilledData = null; // Para armazenar dados pré-preenchidos
 
     // URLs dos webhooks
-    const WEBHOOK_CONSULTA_URL = 'https://criadordigital-n8n-webhook.kttqgl.easypanel.host/webhook/consulta-matricula';
-    const WEBHOOK_SUBMISSAO_URL = 'https://auto-n8n-webhook.rbnawr.easypanel.host/webhook/94c5018e-8929-4447-8e81-1dca33fc4d03entretempos';
+    const WEBHOOK_SUBMISSAO_URL = 'https://auto-n8n-webhook.rbnawr.easypanel.host/webhook/envio-matricula';
 
     // Inicializa as máscaras para os campos
     function initializeMasks() {
@@ -25,7 +24,7 @@ $(document).ready(function () {
         pricesDataLoaded = await priceCalculator.loadPriceData();
         if (pricesDataLoaded) {
             initializeMasks();
-            await checkMatriculaParam(); // Verifica e tenta pré-preencher via URL
+            
             showStep(currentStep); // Exibe o primeiro passo
             if (!prefilledData) { // Se não houve pré-preenchimento, adiciona um aprendiz vazio
                 addApprentice(false);
@@ -329,7 +328,7 @@ $(document).ready(function () {
     // Coleta todos os dados do formulário
     function collectFormData() {
         const formData = {
-            matricula: $('#matricula').val(),
+            
             responsavel: {
                 nome: $('#nomeResponsavel').val(),
                 cpf: $('#cpfResponsavel').val().replace(/\D/g, ''),
@@ -515,104 +514,8 @@ $(document).ready(function () {
         }
     }
 
-    // Verifica o parâmetro 'matricula' na URL e tenta pré-preencher
-    async function checkMatriculaParam() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const matricula = urlParams.get('matricula');
-        if (matricula) {
-            $('#matricula').val(matricula);
-            console.log('Matrícula pré-preenchida via URL:', matricula);
 
-            try {
-                // Remove qualquer aprendiz padrão adicionado antes do pré-preenchimento
-                $('#apprenticesContainer .apprentice-group:not(.template)').remove();
-                apprenticeCounter = 0; // Reseta o contador para os aprendizes pré-preenchidos
 
-                const response = await fetch(`${WEBHOOK_CONSULTA_URL}?matricula=${matricula}`);
-                if (!response.ok) {
-                    throw new Error(`Erro ao consultar dados de matrícula: ${response.statusText}`);
-                }
-                const data = await response.json();
-
-                if (data.success && data.data) {
-                    prefilledData = data.data;
-                    console.log('Dados pré-preenchidos recebidos:', prefilledData);
-                    fillFormWithPrefilledData(prefilledData);
-                } else {
-                    console.warn('Resposta do webhook de consulta de matrícula não indica sucesso ou não contém dados.');
-                    // Adiciona um aprendiz vazio se a consulta falhar
-                    addApprentice(false);
-                }
-            } catch (error) {
-                console.error('Erro ao pré-preencher formulário via webhook:', error);
-                alert('Não foi possível carregar dados de rematrícula. Por favor, preencha manualmente.');
-                // Adiciona um aprendiz vazio se a consulta falhar
-                addApprentice(false);
-            }
-        }
-    }
-
-    // Preenche o formulário com os dados recebidos do webhook
-    function fillFormWithPrefilledData(data) {
-        // Dados do Responsável
-        if (data.responsavel) {
-            $('#nomeResponsavel').val(data.responsavel.nome);
-            $('#cpfResponsavel').val(data.responsavel.cpf).trigger('input'); // Trigger para aplicar máscara
-            $('#emailResponsavel').val(data.responsavel.email);
-            $('#telefoneResponsavel').val(data.responsavel.telefone).trigger('input'); // Trigger para aplicar máscara
-            $('#enderecoResponsavel').val(data.responsavel.endereco || '');
-            $('#segundoResponsavelNome').val(data.responsavel.segundoResponsavelNome || '');
-            $('#segundoResponsavelTelefone').val(data.responsavel.segundoResponsavelTelefone || '').trigger('input');
-        }
-
-        // Campo de emergência (agora no responsável)
-        if (data.emergenciaQuemChamar) {
-            $('#emergenciaQuemChamar').val(data.emergenciaQuemChamar);
-        }
-
-        // Como ficou sabendo
-        if (data.comoSoube && Array.isArray(data.comoSoube)) {
-            $('input[name="comoSoube"]').prop('checked', false); // Desmarcar todos primeiro
-            data.comoSoube.forEach(source => {
-                $(`input[name="comoSoube"][value="${source}"]`).prop('checked', true);
-            });
-        }
-
-        // Aprendizes
-        if (data.aprendizes && Array.isArray(data.aprendizes)) {
-            $('#apprenticesContainer').empty(); // Limpa aprendizes existentes (se houver)
-            apprenticeCounter = 0; // Reseta o contador
-            data.aprendizes.forEach(apprentice => {
-                addApprentice(true, apprentice); // Adiciona e preenche cada aprendiz
-            });
-        }
-
-        // Plano de Pagamento
-        if (data.planoPagamento) {
-            updatePaymentPlanOptions();
-            $('#planoPagamento').val(data.planoPagamento);
-        }
-
-        // Forma de Pagamento e Dia de Vencimento
-        if (data.formaPagamento) {
-            $('#formaPagamento').val(data.formaPagamento).trigger('change');
-            if (data.formaPagamento === 'PIX/Boleto' && data.diaVencimento) {
-                $('#diaVencimento').val(data.diaVencimento);
-            }
-        }
-
-        // Cupom Code
-        if (data.couponCode) {
-            $('#cupomCode').val(data.couponCode).trigger('input');
-        }
-
-        // Autorização de foto (agora está nos termos)
-        if (data.autorizaFoto) {
-            $(`input[name="autorizaFoto"][value="${data.autorizaFoto}"]`).prop('checked', true);
-        }
-
-        updateSummaryAndTotal(); // Atualiza o resumo com os dados pré-preenchidos
-    }
 
     // Função para processar a submissão do formulário
     async function processFormSubmission() {
