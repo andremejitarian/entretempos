@@ -370,18 +370,12 @@ body {
 
 .apprentice-group {
     background: #FFFFFF;
-    border: 2px solid #E5D4C1;
+    border: 0px solid #E5D4C1;
     border-radius: 16px;
     padding: 30px;
     margin-bottom: 30px;
     position: relative;
     transition: all 0.3s ease;
-}
-
-.apprentice-group:hover {
-    border-color: #C47A3A;
-    /* Accent color */
-    box-shadow: 0 8px 25px rgba(156, 79, 46, 0.1);
 }
 
 .apprentice-group h3 {
