@@ -178,7 +178,7 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 15px 20px;
-    border: 2px solid #E5D4C1;
+    border: 1px solid #E5D4C1;
     border-radius: 12px;
     font-size: 1rem;
     transition: all 0.3s ease;
