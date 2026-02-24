@@ -356,6 +356,7 @@ $(document).ready(function () {
             const aprendiz = {
                 nome: $group.find('.nomeAprendiz').val(),
                 dataNascimento: $group.find('.dataNascimentoAprendiz').val(),
+                questoes_saude: $group.find('input#questoes_saude').val(),
                 cursos: getSelectedCourses($group) // Usa a nova função
             };
             formData.aprendizes.push(aprendiz);
