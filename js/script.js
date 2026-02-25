@@ -119,6 +119,17 @@ $(document).ready(function () {
         return selectedCourses;
     }
 
+    function getCoursePlanKeys(course) {
+        const planFields = ['precos_1x_semana', 'precos_2x_semana', 'precos'];
+        const keys = new Set();
+        planFields.forEach(field => {
+            if (course[field]) {
+                Object.keys(course[field]).forEach(planKey => keys.add(planKey));
+            }
+        });
+        return Array.from(keys);
+    }
+
     function getSelectedClassesPerWeek() {
         const selectedValue = $('input[name="classesPerWeek"]:checked').val();
         return selectedValue || '1x_semana';
@@ -243,7 +254,7 @@ $(document).ready(function () {
                 const uniqueId = `course-${course.id}-${apprenticeNumber}`;
 
                 // Gerar lista de todos os planos e preços disponíveis para o curso
-                const planKeys = Object.keys(course.precos_1x_semana || course.precos || {});
+                const planKeys = getCoursePlanKeys(course);
                 const pricesHtml = planKeys
                     .map((planKey) => {
                         const planInfo = priceCalculator.getPaymentPlanInfo(planKey);
@@ -303,6 +314,7 @@ $(document).ready(function () {
         }
 
         $('#apprenticesContainer').append($newApprentice);
+        moveFrequencyControlIntoFirstApprentice();
 
         // Preenche dados se houver prefilledData para este aprendiz
         if (apprenticeData) {
@@ -342,6 +354,7 @@ $(document).ready(function () {
                     $(this).find('.apprentice-number').text(index + 1);
                 });
                 updateRemoveButtons();
+                moveFrequencyControlIntoFirstApprentice();
                 updateSummaryAndTotal(); // Recalcula após remover
             });
         } else {
@@ -356,6 +369,22 @@ $(document).ready(function () {
             $apprenticeGroups.find('.btn-remove-apprentice').hide();
         } else {
             $apprenticeGroups.find('.btn-remove-apprentice').show();
+        }
+    }
+
+    function moveFrequencyControlIntoFirstApprentice() {
+        const $control = $('#classesPerWeekControl');
+        const $firstGroup = $('#apprenticesContainer .apprentice-group:not(.template)').first();
+        if (!$control.length) return;
+        if (!$firstGroup.length) {
+            $('#apprenticesContainer').before($control);
+            return;
+        }
+        const $coursesGroup = $firstGroup.find('.courses-selection').closest('.form-group');
+        if ($coursesGroup.length) {
+            $control.insertBefore($coursesGroup);
+        } else {
+            $firstGroup.prepend($control);
         }
     }
 
@@ -730,7 +759,7 @@ $(document).ready(function () {
             removeApprentice(this);
         });
 
-        $('input[name="classesPerWeek"]').on('change', function () {
+        $('#registrationForm').on('change', 'input[name="classesPerWeek"]', function () {
             $('.frequency-error').hide().text('');
             refreshCoursePriceTags();
             updateSummaryAndTotal();
@@ -764,8 +793,8 @@ $(document).ready(function () {
 
             allSelectedCourseIds.forEach(id => {
                 const course = allCourses.find(c => c.id === id);
-                if (course && course.precos) {
-                    Object.keys(course.precos).forEach(planKey => availablePlans.add(planKey));
+                if (course) {
+                    getCoursePlanKeys(course).forEach(planKey => availablePlans.add(planKey));
                 }
             });
 
