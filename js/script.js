@@ -10,7 +10,7 @@ $(document).ready(function () {
     let prefilledData = null; // Para armazenar dados pré-preenchidos
 
     // URLs dos webhooks
-    const WEBHOOK_SUBMISSAO_URL = 'https://auto-n8n-webhook.rbnawr.easypanel.host/webhook/envio-matricula';
+    const WEBHOOK_SUBMISSAO_URL = 'https://auto-n8n-webhook.rbnawr.easypanel.host/webhook/94c5018e-8929-4447-8e81-1dca33fc4d03entretempos';
 
     // Inicializa as máscaras para os campos
     function initializeMasks() {
