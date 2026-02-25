@@ -136,7 +136,8 @@ $(document).ready(function () {
             const $tag = $(this);
             const planKey = $tag.data('plan-key');
             const planName = $tag.data('plan-name') || (priceCalculator.getPaymentPlanInfo(planKey)?.nome || planKey);
-            const price = priceCalculator.getPlanPriceByFrequency(planKey, frequencyKey);
+            const courseId = $tag.data('course-id');
+            const price = courseId ? priceCalculator.getCoursePrice(courseId, planKey, frequencyKey) : 0;
             $tag.html(`<strong>${planName}:</strong> ${priceCalculator.formatCurrency(price)}`);
         });
     }
@@ -242,12 +243,13 @@ $(document).ready(function () {
                 const uniqueId = `course-${course.id}-${apprenticeNumber}`;
 
                 // Gerar lista de todos os planos e preços disponíveis para o curso
-                const pricesHtml = Object.keys(course.precos)
+                const planKeys = Object.keys(course.precos_1x_semana || course.precos || {});
+                const pricesHtml = planKeys
                     .map((planKey) => {
                         const planInfo = priceCalculator.getPaymentPlanInfo(planKey);
                         const planName = planInfo ? planInfo.nome : planKey;
-                        const planPrice = priceCalculator.getPlanPriceByFrequency(planKey, frequencyKey);
-                        return `<span class="plan-price-tag" data-plan-key="${planKey}" data-plan-name="${planName}"><strong>${planName}:</strong> ${priceCalculator.formatCurrency(planPrice)}</span>`;
+                        const planPrice = priceCalculator.getCoursePrice(course.id, planKey, frequencyKey);
+                        return `<span class="plan-price-tag" data-plan-key="${planKey}" data-plan-name="${planName}" data-course-id="${course.id}"><strong>${planName}:</strong> ${priceCalculator.formatCurrency(planPrice)}</span>`;
                     }).join(' <span class="price-separator">|</span> ');
 
                 const checkboxHtml = `

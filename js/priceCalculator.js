@@ -3,23 +3,6 @@
 let pricesData = null;
 let couponsData = null;
 
-const frequencyFieldMapping = {
-    '1x_semana': 'precos_1x_semana',
-    '2x_semana': 'precos_2x_semana'
-};
-
-function getFrequencyPrices(frequencyKey = '1x_semana') {
-    if (!pricesData) return null;
-    const fieldName = frequencyFieldMapping[frequencyKey] || frequencyFieldMapping['1x_semana'];
-    return pricesData[fieldName] || pricesData[frequencyFieldMapping['1x_semana']] || null;
-}
-
-function getPlanPriceByFrequency(planKey, frequencyKey = '1x_semana') {
-    const frequencyPrices = getFrequencyPrices(frequencyKey);
-    if (!frequencyPrices) return 0;
-    return frequencyPrices[planKey] ?? 0;
-}
-
 // Função para carregar os dados JSON
 async function loadPriceData() {
     try {
@@ -83,11 +66,13 @@ function getCoursePrice(courseId, planKey, frequencyKey = '1x_semana') {
     if (!pricesData) return 0;
 
     const courseEntry = pricesData.cursos[courseId] || pricesData.contraturnos[courseId];
-    if (!courseEntry || !courseEntry.precos || !Object.prototype.hasOwnProperty.call(courseEntry.precos, planKey)) {
-        return 0;
-    }
+    if (!courseEntry) return 0;
 
-    return getPlanPriceByFrequency(planKey, frequencyKey);
+    const freqField = frequencyKey === '2x_semana' ? 'precos_2x_semana' : 'precos_1x_semana';
+    const fallbackField = frequencyKey === '2x_semana' ? 'precos_1x_semana' : 'precos_2x_semana';
+    const selectedPrices = courseEntry[freqField] || courseEntry[fallbackField] || courseEntry.precos || {};
+
+    return selectedPrices[planKey] ?? 0;
 }
 
 /**
@@ -402,8 +387,6 @@ window.priceCalculator = {
 
     // Funções utilitárias
     formatCurrency,
-    getPlanPriceByFrequency,
-    getFrequencyPrices,
 
     // Getters para dados brutos
     getPricesData: () => pricesData,
