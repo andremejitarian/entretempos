@@ -755,21 +755,21 @@
       "observacao": "Não cumulativo com outros descontos"
     },
     "desconto_quantidade_cursos": {
-      "ativo": false,
+      "ativo": true,
       "nome": "Desconto por Quantidade de Cursos",
       "descricao": "Desconto progressivo baseado no número de cursos",
       "regras": {
-        "2": {
+        "12": {
           "percentual": 0.1,
-          "descricao": "10% de desconto para 2 cursos"
+          "descricao": "10% de desconto para 12 cursos"
         },
-        "3": {
+        "13": {
           "percentual": 0.15,
-          "descricao": "15% de desconto para 3 cursos"
+          "descricao": "15% de desconto para 13 cursos"
         },
-        "4_ou_mais": {
+        "14_ou_mais": {
           "percentual": 0.15,
-          "descricao": "15% de desconto para 4 ou mais cursos"
+          "descricao": "15% de desconto para 14 ou mais cursos"
         }
       },
       "observacao": "Desconto aplicado sobre o valor total. Não cumulativo com desconto de múltiplos cursos."
