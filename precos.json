@@ -755,7 +755,7 @@
       "observacao": "Não cumulativo com outros descontos"
     },
     "desconto_quantidade_cursos": {
-      "ativo": true,
+      "ativo": false,
       "nome": "Desconto por Quantidade de Cursos",
       "descricao": "Desconto progressivo baseado no número de cursos",
       "regras": {
