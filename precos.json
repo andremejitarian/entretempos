@@ -759,15 +759,15 @@
       "nome": "Desconto por Quantidade de Cursos",
       "descricao": "Desconto progressivo baseado no número de cursos",
       "regras": {
-        "12": {
+        "2": {
           "percentual": 0.1,
           "descricao": "10% de desconto para 12 cursos"
         },
-        "13": {
+        "3": {
           "percentual": 0.15,
           "descricao": "15% de desconto para 13 cursos"
         },
-        "14_ou_mais": {
+        "4_ou_mais": {
           "percentual": 0.15,
           "descricao": "15% de desconto para 14 ou mais cursos"
         }
