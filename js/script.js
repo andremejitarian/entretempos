@@ -461,12 +461,13 @@ $(document).ready(function () {
         let apprenticesCount = 0;
 
         // OBTENHA O PLANO DE PAGAMENTO AQUI, ANTES DE ITERAR PELOS APRENDIZES
-        const paymentPlan = $('#planoPagamento').val() || 'avulso'; // 'avulso' como padrão
+        const selectedPlan = $('#planoPagamento').val();
+        const paymentPlan = selectedPlan || 'avulso'; // 'avulso' como padrão para cálculos internos
         const classesPerWeekKey = getSelectedClassesPerWeek();
 
         // Atualiza a política de cancelamento e a descrição com base no plano selecionado
-        updateCancellationPolicy(paymentPlan);
-        updatePlanDescription(paymentPlan);
+        updateCancellationPolicy(selectedPlan);
+        updatePlanDescription(selectedPlan);
 
         $('#apprenticesContainer .apprentice-group:not(.template)').each(function () {
             const $group = $(this);
