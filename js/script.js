@@ -24,7 +24,7 @@ $(document).ready(function () {
         pricesDataLoaded = await priceCalculator.loadPriceData();
         if (pricesDataLoaded) {
             initializeMasks();
-            
+
             showStep(currentStep); // Exibe o primeiro passo
             if (!prefilledData) { // Se não houve pré-preenchimento, adiciona um aprendiz vazio
                 addApprentice(false);
@@ -391,7 +391,7 @@ $(document).ready(function () {
     // Coleta todos os dados do formulário
     function collectFormData() {
         const formData = {
-            
+
             responsavel: {
                 nome: $('#nomeResponsavel').val(),
                 cpf: $('#cpfResponsavel').val().replace(/\D/g, ''),
@@ -464,8 +464,9 @@ $(document).ready(function () {
         const paymentPlan = $('#planoPagamento').val() || 'avulso'; // 'avulso' como padrão
         const classesPerWeekKey = getSelectedClassesPerWeek();
 
-        // Atualiza a política de cancelamento com base no plano selecionado
+        // Atualiza a política de cancelamento e a descrição com base no plano selecionado
         updateCancellationPolicy(paymentPlan);
+        updatePlanDescription(paymentPlan);
 
         $('#apprenticesContainer .apprentice-group:not(.template)').each(function () {
             const $group = $(this);
@@ -584,6 +585,36 @@ $(document).ready(function () {
             $policyContainer.html(policyText).show();
         } else {
             $policyContainer.hide().empty();
+        }
+    }
+
+    // Atualiza o texto explicativo do plano de pagamento
+    function updatePlanDescription(planKey) {
+        const $descriptionContainer = $('#planoDescricao');
+        let description = '';
+
+        switch (planKey) {
+            case 'experimental':
+                description = 'uma única aula experimental para conhecer o curso';
+                break;
+            case 'avulso':
+                description = 'este plano representa a compra de uma ou duas aulas apenas para cada curso escolhido';
+                break;
+            case 'mensal':
+                description = 'este plano representa o pagamento mensal do valor abaixo, podendo ser cancelado a qualquer momento.';
+                break;
+            case 'semestral':
+                description = 'este plano representa o pagamento mensal do valor abaixo ao longo de 6 meses, com direito a cancelamento conforme política abaixo';
+                break;
+            case 'anual':
+                description = 'este plano representa o pagamento mensal do valor abaixo ao longo de 12 meses, com direito a cancelamento conforme política abaixo';
+                break;
+        }
+
+        if (description) {
+            $descriptionContainer.text(description).fadeIn(200);
+        } else {
+            $descriptionContainer.hide().empty();
         }
     }
 
