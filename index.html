@@ -291,7 +291,9 @@
                                 <option value="Cartão de Crédito">Cartão de Crédito</option>
                                 <option value="PIX/Boleto">PIX/Boleto</option>
                             </select>
-                            <div class="error-message">Selecione a forma de pagamento</div>
+                            <div id="notaCurtoPrazo" style="display: none; margin-top: 5px; font-size: 0.9em; color: #555;">O pagamento pode ser realizado em até 5 dias após a inscrição.</div>
+                            <div id="notaProporcionalBoleto" style="display: none; margin-top: 5px; font-size: 0.9em; color: #555;">A primeira cobrança será referente ao valor proporcional dos dias restantes do mês da inscrição.</div>
+                            <div id="notaProporcionalCartao" style="display: none; margin-top: 5px; font-size: 0.9em; color: #555;">A assinatura será cobrada no dia 5 de cada mês. A primeira cobrança será referente ao valor proporcional dos dias restantes do mês da inscrição.</div>
                         </div>
 
                         <div class="form-group" id="diaVencimentoGroup" style="display: none;">

@@ -229,7 +229,10 @@ $(document).ready(function () {
 
             // Dia de Vencimento só é obrigatório se for PIX/Boleto
             if ($('#formaPagamento').val() === 'PIX/Boleto') {
-                isValid = validateField($('#diaVencimento'), null, 'Selecione o dia de vencimento.') && isValid;
+                const isShortTerm = ['experimental', 'avulso', '4_aulas', '8_aulas'].includes($('#planoPagamento').val());
+                if (!isShortTerm) {
+                    isValid = validateField($('#diaVencimento'), null, 'Selecione o dia de vencimento.') && isValid;
+                }
             }
         }
         return isValid;
@@ -390,6 +393,24 @@ $(document).ready(function () {
 
     // Coleta todos os dados do formulário
     function collectFormData() {
+        const plan = $('#planoPagamento').val();
+        const method = $('#formaPagamento').val();
+        const isShortTerm = ['experimental', 'avulso', '4_aulas', '8_aulas'].includes(plan);
+        let calculatedDiaVencimento = '';
+
+        if (isShortTerm) {
+            const date = new Date();
+            date.setDate(date.getDate() + 5);
+            const d = date.getDate().toString().padStart(2, '0');
+            const m = (date.getMonth() + 1).toString().padStart(2, '0');
+            const y = date.getFullYear();
+            calculatedDiaVencimento = `${d}/${m}/${y}`;
+        } else if (method === 'Cartão de Crédito') {
+            calculatedDiaVencimento = '5';
+        } else if (method === 'PIX/Boleto') {
+            calculatedDiaVencimento = $('#diaVencimento').val();
+        }
+
         const formData = {
 
             responsavel: {
@@ -400,11 +421,11 @@ $(document).ready(function () {
             },
             comoSoube: [],
             aprendizes: [],
-            planoPagamento: $('#planoPagamento').val(),
-            formaPagamento: $('#formaPagamento').val(),
+            planoPagamento: plan,
+            formaPagamento: method,
             frequenciaAulasSemana: getSelectedClassesPerWeek(),
             frequenciaAulasSemanaLabel: getSelectedClassesPerWeekLabel(),
-            diaVencimento: ($('#formaPagamento').val() === 'PIX/Boleto') ? $('#diaVencimento').val() : '',
+            diaVencimento: calculatedDiaVencimento,
             aceiteTermos: $('#aceiteTermos').is(':checked'),
             autorizaFoto: $('input[name="autorizaFoto"]:checked').val(),
             cupomCode: $('#cupomCode').val().toUpperCase()
@@ -852,19 +873,67 @@ $(document).ready(function () {
             });
         }
 
-        // Toggle para Dia de Vencimento
-        $('#formaPagamento').on('change', function () {
-            if ($(this).val() === 'PIX/Boleto') {
-                $('#diaVencimentoGroup').slideDown();
-                $('#diaVencimento').prop('required', true);
-            } else {
+        function updateDueDayVisibility() {
+            const plan = $('#planoPagamento').val();
+            const method = $('#formaPagamento').val();
+            const isShortTerm = ['experimental', 'avulso', '4_aulas', '8_aulas'].includes(plan);
+            const isRecurrent = ['mensal', 'semestral', 'anual'].includes(plan);
+            const today = new Date().getDate();
+
+            if (isShortTerm) {
                 $('#diaVencimentoGroup').slideUp();
                 $('#diaVencimento').prop('required', false);
-                $('#diaVencimento').val(''); // Limpa a seleção
-                validateField($('#diaVencimento')); // Limpa o erro visual
+                $('#notaProporcionalBoleto').slideUp();
+                $('#notaProporcionalCartao').slideUp();
+                if (method) {
+                    $('#notaCurtoPrazo').slideDown();
+                } else {
+                    $('#notaCurtoPrazo').slideUp();
+                }
+            } else {
+                $('#notaCurtoPrazo').slideUp();
+                if (method === 'PIX/Boleto') {
+                    $('#diaVencimentoGroup').slideDown();
+                    $('#diaVencimento').prop('required', true);
+                    $('#notaProporcionalCartao').slideUp();
+
+                    if (isRecurrent && today > 5) {
+                        $('#notaProporcionalBoleto').slideDown();
+                    } else {
+                        $('#notaProporcionalBoleto').slideUp();
+                    }
+                } else if (method === 'Cartão de Crédito') {
+                    $('#diaVencimentoGroup').slideUp();
+                    $('#diaVencimento').prop('required', false);
+                    $('#diaVencimento').val(''); // Limpa a seleção
+                    validateField($('#diaVencimento')); // Limpa o erro visual
+                    $('#notaProporcionalBoleto').slideUp();
+
+                    if (isRecurrent) {
+                        $('#notaProporcionalCartao').slideDown();
+                    } else {
+                        $('#notaProporcionalCartao').slideUp();
+                    }
+                } else {
+                    $('#diaVencimentoGroup').slideUp();
+                    $('#diaVencimento').prop('required', false);
+                    $('#diaVencimento').val(''); // Limpa a seleção
+                    validateField($('#diaVencimento')); // Limpa o erro visual
+                    $('#notaProporcionalBoleto').slideUp();
+                    $('#notaProporcionalCartao').slideUp();
+                }
             }
+        }
+
+        // Toggle para Dia de Vencimento
+        $('#formaPagamento').on('change', function () {
+            updateDueDayVisibility();
             // Disparar cálculo se a forma de pagamento afeta taxa
             updateSummaryAndTotal();
+        });
+
+        $('#registrationForm').on('change', '#planoPagamento', function () {
+            updateDueDayVisibility();
         });
 
         $('#cupomCode').on('input', function () {
