@@ -711,6 +711,7 @@ $(document).ready(function () {
             }
 
             const result = await response.json();
+            const paymentLink = result.output?.link ?? result.link;
             console.log('Inscrição enviada com sucesso (resposta do webhook):', result);
 
             // 2. Processamento bem-sucedido do webhook
@@ -720,9 +721,9 @@ $(document).ready(function () {
             if (formData.formaPagamento === 'Bolsista Integral') {
                 $statusMessage.text('Sua inscrição como bolsista foi registrada com sucesso. Em breve entraremos em contato para os próximos passos.');
                 $goToPaymentBtn.hide();
-            } else if (result.link) {
+            } else if (paymentLink) {
                 $statusMessage.text('Sua inscrição foi finalizada com sucesso! Clique abaixo para prosseguir com o pagamento.');
-                $goToPaymentBtn.data('payment-link', result.link).show();
+                $goToPaymentBtn.data('payment-link', paymentLink).show();
             } else {
                 $statusMessage.text('Inscrição finalizada com sucesso, mas não foi possível obter o link de pagamento. Por favor, entre em contato com a administração do Quintal das Artes.');
                 $goToPaymentBtn.hide();
