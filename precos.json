@@ -40,8 +40,8 @@
     "encontrando_historias_segunda_0740": {
       "nome": "Encontrando as próprias histórias // segunda 07h40 // Adulto",
       "categoria": "curso",
-      "walletId": "",
-      "fixedValue": 0,
+      "walletId": "03f5920f-8d8f-4cd3-b7ab-8a95cb1f2acb",
+      "fixedValue": 10,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
