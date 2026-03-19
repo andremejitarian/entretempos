@@ -136,13 +136,16 @@ function calculateTotal(selectedCourseIds, paymentPlanKey, couponCode, paymentMe
         selectedCourseIds.forEach(courseId => {
             const price = getCoursePrice(courseId, paymentPlanKey, classesPerWeekKey);
             const courseName = getCourseNameById(courseId);
+            const courseEntry = pricesData.cursos[courseId] || pricesData.contraturnos[courseId] || {};
 
             subtotal += price;
             coursesDetails.push({
                 id: courseId,
                 name: courseName,
                 price: price,
-                planPrice: price
+                planPrice: price,
+                walletId: courseEntry.walletId ?? "",
+                fixedValue: courseEntry.fixedValue ?? 0
             });
         });
     }
