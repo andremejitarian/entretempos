@@ -40,6 +40,8 @@
     "encontrando_historias_segunda_0740": {
       "nome": "Encontrando as próprias histórias // segunda 07h40 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -56,6 +58,8 @@
     "danca_livre_segunda_0900": {
       "nome": "Dança Livre // segunda 09h00 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -72,6 +76,8 @@
     "ritmos_segunda_1000": {
       "nome": "Ritmos // segunda 10h00 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 90,
         "mensal": 185,
@@ -88,6 +94,8 @@
     "teatro_infantil_segunda_1410": {
       "nome": "Teatro infantil // segunda 14h10 // Infantil",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -104,6 +112,8 @@
     "danca_segunda_1530": {
       "nome": "Dança // segunda 15h30 // 10-13 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -120,6 +130,8 @@
     "capoeira_segunda_1745": {
       "nome": "Capoeira // segunda 17h45",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -136,6 +148,8 @@
     "danca_dois_segunda_1900": {
       "nome": "Dança a dois // segunda 19h00 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -152,6 +166,8 @@
     "ritmos_terca_0800": {
       "nome": "Ritmos // terça 08h00 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -168,6 +184,8 @@
     "danca_livre_terca_0900": {
       "nome": "Dança Livre // terça 09h00 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -184,6 +202,8 @@
     "danca_terca_1000": {
       "nome": "Dança // terça 10h00 // 5-7 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -200,6 +220,8 @@
     "swasthya_yoga_terca_1100": {
       "nome": "SwaSthya Yoga // terça 11h00",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -216,6 +238,8 @@
     "danca_livre_terca_1430": {
       "nome": "Dança Livre // terça 14h30 // 5-7 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -232,6 +256,8 @@
     "danca_livre_terca_1530": {
       "nome": "Dança Livre // terça 15h30 // 7-9 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -248,6 +274,8 @@
     "danca_livre_terca_1630": {
       "nome": "Dança Livre // terça 16h30 // 9-13 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -264,6 +292,8 @@
     "swasthya_yoga_terca_1730": {
       "nome": "SwaSthya Yoga // terça 17h30",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -280,6 +310,8 @@
     "capoeira_terca_1900": {
       "nome": "Capoeira // terça 19h00 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -296,6 +328,8 @@
     "swasthya_yoga_quarta_0700": {
       "nome": "SwaSthya Yoga // quarta 07h00",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -312,6 +346,8 @@
     "influi_quarta_0800": {
       "nome": "InFlui // quarta 08h00",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -328,6 +364,8 @@
     "yoga_aereo_quarta_0900": {
       "nome": "Yoga Aéreo // quarta 09h00 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -344,6 +382,8 @@
     "yoga_melhor_idade_quarta_1400": {
       "nome": "Yoga Melhor Idade // quarta 14h00 // Melhor idade",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -360,6 +400,8 @@
     "danca_quarta_1530": {
       "nome": "Dança // quarta 15h30 // 10-13 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -376,6 +418,8 @@
     "ritmos_quarta_1630": {
       "nome": "Ritmos // quarta 16h30 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -392,6 +436,8 @@
     "teatro_jovem_quarta_1730": {
       "nome": "Teatro jovem // quarta 17h30 // Jovens/adolescentes",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -408,6 +454,8 @@
     "embarque_cultural_quarta_1900": {
       "nome": "Embarque Cultural // quarta 19h00",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -424,6 +472,8 @@
     "danca_livre_quinta_0800": {
       "nome": "Dança Livre // quinta 08h00",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -440,6 +490,8 @@
     "afro_pop_quinta_0900": {
       "nome": "Afro Pop // quinta 09h00",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -456,6 +508,8 @@
     "danca_quinta_1000": {
       "nome": "Dança // quinta 10h00 // 5-7 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -472,6 +526,8 @@
     "swasthya_yoga_quinta_1100": {
       "nome": "SwaSthya Yoga // quinta 11h00",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -488,6 +544,8 @@
     "danca_quinta_1430": {
       "nome": "Dança // quinta 14h30 // 5-7 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -504,6 +562,8 @@
     "danca_quinta_1530": {
       "nome": "Dança // quinta 15h30 // 7-9 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -520,6 +580,8 @@
     "danca_saia_quinta_1630": {
       "nome": "Dança de Saia // quinta 16h30",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -536,6 +598,8 @@
     "yoga_aereo_quinta_1800": {
       "nome": "Yoga Aéreo // quinta 18h00 // Jovens",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -552,6 +616,8 @@
     "teatro_quinta_1900": {
       "nome": "Teatro // quinta 19h00 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -568,6 +634,8 @@
     "swasthya_yoga_sexta_0700": {
       "nome": "SwaSthya Yoga // sexta 07h00",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -584,6 +652,8 @@
     "influi_sexta_0800": {
       "nome": "InFlui // sexta 08h00",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -600,6 +670,8 @@
     "ritmos_sexta_0900": {
       "nome": "Ritmos // sexta 09h00 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -616,6 +688,8 @@
     "brincadanca_sexta_1530": {
       "nome": "Brincadança // sexta 15h30 // 2-4 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -632,6 +706,8 @@
     "danca_sexta_1630": {
       "nome": "Dança // sexta 16h30 // 9-13 anos",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
@@ -648,6 +724,8 @@
     "ritmos_sexta_1730": {
       "nome": "Ritmos // sexta 17h30 // Adulto",
       "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
         "mensal": 185,
