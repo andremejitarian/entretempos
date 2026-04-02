@@ -585,6 +585,14 @@ $(document).ready(function () {
                 ${titleHtml}
                 <p style="margin: 0;">Cancelamento a qualquer momento, com aviso prévio de 30 dias.</p>
             `;
+        } else if (planKey === 'trimestral') {
+            policyText = `
+                ${titleHtml}
+                <ul style="padding-left: 20px; margin: 0;">
+                    <li>Compromisso mínimo de 3 meses.</li>
+                    <li>Em caso de cancelamento antecipado, será cobrada multa equivalente a até 1 mensalidade, limitada ao valor das parcelas restantes.</li>
+                </ul>
+            `;
         } else if (planKey === 'semestral') {
             policyText = `
                 ${titleHtml}
