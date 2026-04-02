@@ -250,7 +250,7 @@ $(document).ready(function () {
                         const planName = planInfo ? planInfo.nome : planKey;
                         const planPrice = priceCalculator.getCoursePrice(course.id, planKey, frequencyKey);
                         return `<span class="plan-price-tag" data-plan-key="${planKey}" data-plan-name="${planName}" data-course-id="${course.id}"><strong>${planName}:</strong> ${priceCalculator.formatCurrency(planPrice)}</span>`;
-                    }).join(' <span class="price-separator">|</span> ');
+                    }).join('');
 
                 const checkboxHtml = `
                     <div class="checkbox-group">

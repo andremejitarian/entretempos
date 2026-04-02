@@ -642,6 +642,14 @@ body {
 }
 
 @media (max-width: 480px) {
+    .courses-checkboxes .course-plans-prices {
+        grid-template-columns: 1fr;
+    }
+
+    .courses-checkboxes .checkbox-group {
+        padding: 12px 12px;
+    }
+
     .banner-top {
         height: 150px;
     }
@@ -788,10 +796,6 @@ body {
     font-weight: 600;
 }
 
-.price-separator {
-    color: #ccc;
-    margin: 0 4px;
-}
 
 .checkbox-group label {
     display: flex;
@@ -799,9 +803,61 @@ body {
     flex: 1;
 }
 
+.courses-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .courses-checkboxes .checkbox-group {
-    margin-bottom: 12px;
+    margin-bottom: 0;
     align-items: flex-start;
+    padding: 14px 16px;
+    border: 2px solid #E5D4C1;
+    border-radius: 10px;
+    background: #fff8f2;
+    gap: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.courses-checkboxes .checkbox-group:hover {
+    border-color: #C47A3A;
+    background-color: #fff3e8;
+}
+
+.courses-checkboxes .checkbox-group:has(input:checked) {
+    border-color: #9C4F2E;
+    background-color: #fff3e8;
+}
+
+.courses-checkboxes input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    accent-color: #9C4F2E;
+    cursor: pointer;
+}
+
+.courses-checkboxes .checkbox-group label strong {
+    font-size: 0.95rem;
+    color: #3A2316;
+    line-height: 1.4;
+}
+
+.courses-checkboxes .course-plans-prices {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 3px 12px;
+    margin-top: 8px;
+}
+
+.courses-checkboxes .plan-price-tag {
+    display: block;
+    font-size: 0.82rem;
+    color: #7a6050;
+    white-space: nowrap;
 }
 
 
