@@ -625,6 +625,9 @@ $(document).ready(function () {
             case 'mensal':
                 description = 'este plano representa o pagamento mensal do valor abaixo, podendo ser cancelado a qualquer momento.';
                 break;
+            case 'trimestral':
+                description = 'este plano representa o pagamento mensal do valor abaixo ao longo de 3 meses, com direito a cancelamento conforme política abaixo';
+                break;
             case 'semestral':
                 description = 'este plano representa o pagamento mensal do valor abaixo ao longo de 6 meses, com direito a cancelamento conforme política abaixo';
                 break;
