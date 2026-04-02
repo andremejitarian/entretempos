@@ -102,7 +102,7 @@ $(document).ready(function () {
         const $errorDiv = $apprenticeGroup.find('.courses-selection').siblings('.error-message');
 
         if ($checkedCourses.length === 0) {
-            $errorDiv.text('Selecione pelo menos um curso.').show();
+            $errorDiv.text('Selecione um curso.').show();
             return false;
         } else {
             $errorDiv.hide().text('');
@@ -131,14 +131,7 @@ $(document).ready(function () {
     }
 
     function getSelectedClassesPerWeek() {
-        const selectedValue = $('input[name="classesPerWeek"]:checked').val();
-        return selectedValue || '1x_semana';
-    }
-
-    function getSelectedClassesPerWeekLabel() {
-        const label = $('input[name="classesPerWeek"]:checked').data('label');
-        if (label) return label;
-        return getSelectedClassesPerWeek() === '2x_semana' ? '2 aulas por semana' : '1 aula por semana';
+        return '1x_semana';
     }
 
     function refreshCoursePriceTags() {
@@ -178,13 +171,6 @@ $(document).ready(function () {
                 isValid = validateApprenticesCourses($group) && isValid;
             });
 
-            const $frequencyError = $('.frequency-error');
-            if (!getSelectedClassesPerWeek()) {
-                $frequencyError.text('Selecione a frequência de aulas desejada.').show();
-                isValid = false;
-            } else {
-                $frequencyError.hide().text('');
-            }
         } else if (currentStep === 3) { // Dados do Responsável (step-3)
             elementsToValidate = [
                 $('#nomeResponsavel'),
@@ -251,7 +237,7 @@ $(document).ready(function () {
         const cursos = allCourses.filter(c => c.categoria === 'curso');
         const contraturnos = allCourses.filter(c => c.categoria === 'contraturno');
 
-        // Função para criar checkboxes
+        // Função para criar radio buttons de cursos
         function createCheckboxes(courseList, categoryContainer) {
             courseList.forEach(course => {
                 const uniqueId = `course-${course.id}-${apprenticeNumber}`;
@@ -268,9 +254,10 @@ $(document).ready(function () {
 
                 const checkboxHtml = `
                     <div class="checkbox-group">
-                        <input type="checkbox" 
-                               class="course-checkbox" 
-                               value="${course.id}" 
+                        <input type="radio"
+                               class="course-checkbox"
+                               name="course-aprendiz-${apprenticeNumber}"
+                               value="${course.id}"
                                id="${uniqueId}">
                         <label for="${uniqueId}">
                             <strong>${course.nome}</strong>
@@ -423,8 +410,6 @@ $(document).ready(function () {
             aprendizes: [],
             planoPagamento: plan,
             formaPagamento: method,
-            frequenciaAulasSemana: getSelectedClassesPerWeek(),
-            frequenciaAulasSemanaLabel: getSelectedClassesPerWeekLabel(),
             diaVencimento: calculatedDiaVencimento,
             aceiteTermos: $('#aceiteTermos').is(':checked'),
             autorizaFoto: $('input[name="autorizaFoto"]:checked').val(),
@@ -466,8 +451,7 @@ $(document).ready(function () {
             aprendizes: detalhesAprendizesParaBackend,
             planoPagamento: formData.planoPagamento,
             cupomAplicado: formData.cupomCode,
-            valorFinal: formData.valor_calculado_total,
-            frequenciaAulasSemana: formData.frequenciaAulasSemanaLabel
+            valorFinal: formData.valor_calculado_total
         });
 
         return formData;
@@ -548,11 +532,6 @@ $(document).ready(function () {
             });
         } else {
             $summaryList.append(`<li>Nenhum aprendiz adicionado</li>`);
-        }
-
-        const $summaryFrequency = $('#summaryFrequency');
-        if ($summaryFrequency.length) {
-            $summaryFrequency.text(getSelectedClassesPerWeekLabel());
         }
 
         // Atualiza os valores financeiros usando formatCurrency
@@ -824,47 +803,9 @@ $(document).ready(function () {
             removeApprentice(this);
         });
 
-        $('#registrationForm').on('change', 'input[name="classesPerWeek"]', function () {
-            $('.frequency-error').hide().text('');
-            refreshCoursePriceTags();
-            updateSummaryAndTotal();
-        });
-
-        // Exclusão mútua entre cursos de parceiros e demais cursos
-        function handlePartnerCourseExclusion($changedCheckbox) {
-            const $apprenticeGroup = $changedCheckbox.closest('.apprentice-group');
-            const $allCheckboxes = $apprenticeGroup.find('.course-checkbox');
-
-            const isPartner = (courseId) => {
-                const course = priceCalculator.getCourseById(courseId);
-                return course && course.parceiro === true;
-            };
-
-            const $checkedBoxes = $allCheckboxes.filter(':checked');
-            const hasPartnerChecked = $checkedBoxes.toArray().some(el => isPartner($(el).val()));
-            const hasNonPartnerChecked = $checkedBoxes.toArray().some(el => !isPartner($(el).val()));
-
-            $allCheckboxes.each(function () {
-                const $cb = $(this);
-                const courseIsPartner = isPartner($cb.val());
-
-                if (hasPartnerChecked && !courseIsPartner) {
-                    $cb.prop('checked', false).prop('disabled', true);
-                    $cb.closest('.checkbox-group').attr('title', 'Não pode ser combinado com cursos de parceiros');
-                } else if (hasNonPartnerChecked && courseIsPartner) {
-                    $cb.prop('checked', false).prop('disabled', true);
-                    $cb.closest('.checkbox-group').attr('title', 'Cursos de parceiros não podem ser combinados com outros cursos');
-                } else {
-                    $cb.prop('disabled', false);
-                    $cb.closest('.checkbox-group').removeAttr('title');
-                }
-            });
-        }
-
         // Disparar cálculo ao mudar seleção de curso, plano ou cupom
         $('#registrationForm').on('change', '.course-checkbox, #planoPagamento', function () {
             if ($(this).hasClass('course-checkbox')) {
-                handlePartnerCourseExclusion($(this));
                 updatePaymentPlanOptions();
             }
             updateSummaryAndTotal();

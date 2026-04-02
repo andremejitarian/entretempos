@@ -49,23 +49,6 @@
                 <div class="form-step" id="step-2">
                     <h2 class="step-title">Dados do(s) Aprendiz(es)</h2>
 
-                    <div id="classesPerWeekControl" class="form-group frequency-selection-group">
-                        <label>Frequência semanal preferida *</label>
-                        <div class="frequency-selection">
-                            <label class="radio-group frequency-option" for="classesPerWeek1x">
-                                <input type="radio" id="classesPerWeek1x" name="classesPerWeek" value="1x_semana"
-                                    data-label="1 aula por semana" checked>
-                                <strong>1x por semana</strong>
-                            </label>
-                            <label class="radio-group frequency-option" for="classesPerWeek2x">
-                                <input type="radio" id="classesPerWeek2x" name="classesPerWeek" value="2x_semana"
-                                    data-label="2 aulas por semana">
-                                <strong>2x por semana</strong>
-                            </label>
-                        </div>
-                        <div class="error-message frequency-error">Selecione a frequência de aulas desejada.</div>
-                    </div>
-
                     <div id="apprenticesContainer">
                         <!-- Template para aprendiz (será clonado pelo JavaScript) -->
                         <div class="apprentice-group template" style="display: none;">
@@ -96,7 +79,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="error-message">Selecione pelo menos um curso</div>
+                                <div class="error-message">Selecione um curso</div>
                             </div>
 
                             <div class="form-group">
@@ -265,11 +248,6 @@
                                 <!-- Preenchido pelo JavaScript -->
                             </ul>
                         </div>
-                        <div class="form-group">
-                            <label>Frequência semanal escolhida:</label>
-                            <p id="summaryFrequency" class="frequency-badge">1 aula por semana</p>
-                        </div>
-
                         <div class="form-group">
                             <label for="planoPagamento">Plano de Pagamento *</label>
                             <select id="planoPagamento" name="planoPagamento" required>
