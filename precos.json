@@ -371,6 +371,7 @@
     "yoga_aereo_quarta_0900": {
       "nome": "Yoga Aéreo // quarta 09h00 // Adulto",
       "categoria": "curso",
+      "parceiro": true,
       "walletId": "",
       "fixedValue": 0,
       "precos_1x_semana": {
@@ -607,6 +608,7 @@
     "yoga_aereo_quinta_1800": {
       "nome": "Yoga Aéreo // quinta 18h00 // Jovens",
       "categoria": "curso",
+      "parceiro": true,
       "walletId": "",
       "fixedValue": 0,
       "precos_1x_semana": {

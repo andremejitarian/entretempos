@@ -830,9 +830,41 @@ $(document).ready(function () {
             updateSummaryAndTotal();
         });
 
+        // Exclusão mútua entre cursos de parceiros e demais cursos
+        function handlePartnerCourseExclusion($changedCheckbox) {
+            const $apprenticeGroup = $changedCheckbox.closest('.apprentice-group');
+            const $allCheckboxes = $apprenticeGroup.find('.course-checkbox');
+
+            const isPartner = (courseId) => {
+                const course = priceCalculator.getCourseById(courseId);
+                return course && course.parceiro === true;
+            };
+
+            const $checkedBoxes = $allCheckboxes.filter(':checked');
+            const hasPartnerChecked = $checkedBoxes.toArray().some(el => isPartner($(el).val()));
+            const hasNonPartnerChecked = $checkedBoxes.toArray().some(el => !isPartner($(el).val()));
+
+            $allCheckboxes.each(function () {
+                const $cb = $(this);
+                const courseIsPartner = isPartner($cb.val());
+
+                if (hasPartnerChecked && !courseIsPartner) {
+                    $cb.prop('checked', false).prop('disabled', true);
+                    $cb.closest('.checkbox-group').attr('title', 'Não pode ser combinado com cursos de parceiros');
+                } else if (hasNonPartnerChecked && courseIsPartner) {
+                    $cb.prop('checked', false).prop('disabled', true);
+                    $cb.closest('.checkbox-group').attr('title', 'Cursos de parceiros não podem ser combinados com outros cursos');
+                } else {
+                    $cb.prop('disabled', false);
+                    $cb.closest('.checkbox-group').removeAttr('title');
+                }
+            });
+        }
+
         // Disparar cálculo ao mudar seleção de curso, plano ou cupom
         $('#registrationForm').on('change', '.course-checkbox, #planoPagamento', function () {
             if ($(this).hasClass('course-checkbox')) {
+                handlePartnerCourseExclusion($(this));
                 updatePaymentPlanOptions();
             }
             updateSummaryAndTotal();
