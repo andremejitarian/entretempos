@@ -54,12 +54,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "ritmos_segunda_1000": {
@@ -72,12 +66,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "teatro_infantil_segunda_1410": {
@@ -90,12 +78,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_segunda_1530": {
@@ -108,12 +90,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "capoeira_segunda_1745": {
@@ -126,12 +102,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "ritmos_terca_0800": {
@@ -144,12 +114,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_livre_terca_0900": {
@@ -162,12 +126,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "swasthya_yoga_terca_1100": {
@@ -180,12 +138,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_livre_terca_1430": {
@@ -198,12 +150,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_livre_terca_1530": {
@@ -216,12 +162,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_livre_terca_1630": {
@@ -234,12 +174,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "swasthya_yoga_terca_1730": {
@@ -252,12 +186,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "swasthya_yoga_quarta_0700": {
@@ -270,12 +198,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "influi_quarta_0800": {
@@ -288,12 +210,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "yoga_aereo_quarta_0900": {
@@ -308,13 +224,6 @@
         "trimestral": 330,
         "semestral": 310,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 350,
-        "trimestral": 330,
-        "semestral": 310,
-        "anual": 230
       }
     },
     "ritmos_melhor_idade_quarta_1400": {
@@ -327,12 +236,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_quarta_1530": {
@@ -345,12 +248,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "ritmos_quarta_1630": {
@@ -363,12 +260,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "embarque_cultural_quarta_1900": {
@@ -381,12 +272,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_livre_quinta_0800": {
@@ -399,12 +284,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "afro_pop_quinta_0900": {
@@ -417,12 +296,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "swasthya_yoga_quinta_1100": {
@@ -435,12 +308,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_quinta_1430": {
@@ -453,12 +320,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_quinta_1530": {
@@ -471,12 +332,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_saia_quinta_1630": {
@@ -489,12 +344,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "yoga_aereo_quinta_1800": {
@@ -509,13 +358,6 @@
         "trimestral": 240,
         "semestral": 220,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 260,
-        "trimestral": 240,
-        "semestral": 220,
-        "anual": 230
       }
     },
     "swasthya_yoga_sexta_0700": {
@@ -528,12 +370,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "influi_sexta_0800": {
@@ -546,12 +382,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "ritmos_sexta_0900": {
@@ -564,12 +394,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "brincadanca_sexta_1530": {
@@ -582,12 +406,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "danca_sexta_1630": {
@@ -600,12 +418,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     },
     "ritmos_sexta_1730": {
@@ -618,12 +430,6 @@
         "mensal": 185,
         "semestral": 175,
         "anual": 165
-      },
-      "precos_2x_semana": {
-        "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
-        "anual": 230
       }
     }
   },
