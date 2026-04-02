@@ -21,6 +21,13 @@
       "parcelas": 1,
       "taxaCartaoPercentual": 0.0421
     },
+    "trimestral": {
+      "nome": "Trimestral",
+      "descricao": "3 meses de aulas",
+      "meses": 3,
+      "parcelas": 3,
+      "taxaCartaoPercentual": 0.0421
+    },
     "semestral": {
       "nome": "Semestral",
       "descricao": "6 meses de aulas",
@@ -368,14 +375,16 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
+        "mensal": 350,
+        "trimestral": 330,
+        "semestral": 310,
         "anual": 165
       },
       "precos_2x_semana": {
         "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
+        "mensal": 350,
+        "trimestral": 330,
+        "semestral": 310,
         "anual": 230
       }
     },
@@ -602,14 +611,16 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
+        "mensal": 260,
+        "trimestral": 240,
+        "semestral": 220,
         "anual": 165
       },
       "precos_2x_semana": {
         "avulso": 80,
-        "mensal": 250,
-        "semestral": 240,
+        "mensal": 260,
+        "trimestral": 240,
+        "semestral": 220,
         "anual": 230
       }
     },
