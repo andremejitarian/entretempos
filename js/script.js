@@ -237,35 +237,71 @@ $(document).ready(function () {
         const cursos = allCourses.filter(c => c.categoria === 'curso');
         const contraturnos = allCourses.filter(c => c.categoria === 'contraturno');
 
-        // Função para criar radio buttons de cursos
+        // Agrupa cursos por dia da semana e renderiza com cabeçalhos por dia
         function createCheckboxes(courseList, categoryContainer) {
+            const dayOrder = ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado', 'domingo'];
+            const dayLabels = {
+                'segunda': 'Segunda-feira',
+                'terça': 'Terça-feira',
+                'quarta': 'Quarta-feira',
+                'quinta': 'Quinta-feira',
+                'sexta': 'Sexta-feira',
+                'sábado': 'Sábado',
+                'domingo': 'Domingo',
+            };
+
+            // Agrupa cursos por dia
+            const grouped = {};
             courseList.forEach(course => {
-                const uniqueId = `course-${course.id}-${apprenticeNumber}`;
+                const parts = course.nome.split(' // ');
+                const dayTimePart = (parts[1] || '').toLowerCase();
+                const day = dayOrder.find(d => dayTimePart.startsWith(d)) || '_outro';
+                if (!grouped[day]) grouped[day] = [];
+                grouped[day].push({ course, parts });
+            });
 
-                // Gerar lista de todos os planos e preços disponíveis para o curso
-                const planKeys = getCoursePlanKeys(course);
-                const pricesHtml = planKeys
-                    .map((planKey) => {
-                        const planInfo = priceCalculator.getPaymentPlanInfo(planKey);
-                        const planName = planInfo ? planInfo.nome : planKey;
-                        const planPrice = priceCalculator.getCoursePrice(course.id, planKey, frequencyKey);
-                        return `<span class="plan-price-tag" data-plan-key="${planKey}" data-plan-name="${planName}" data-course-id="${course.id}"><strong>${planName}:</strong> ${priceCalculator.formatCurrency(planPrice)}</span>`;
-                    }).join('');
+            // Renderiza por ordem dos dias
+            const orderedKeys = [...dayOrder.filter(d => grouped[d]), ...(grouped['_outro'] ? ['_outro'] : [])];
+            orderedKeys.forEach(day => {
+                const $dayGroup = $('<div class="course-day-group"></div>');
+                const label = dayLabels[day] || 'Outros';
+                $dayGroup.append(`<h5 class="course-day-header">${label}</h5>`);
 
-                const checkboxHtml = `
-                    <div class="checkbox-group">
-                        <input type="radio"
-                               class="course-checkbox"
-                               name="course-aprendiz-${apprenticeNumber}"
-                               value="${course.id}"
-                               id="${uniqueId}">
-                        <label for="${uniqueId}">
-                            <strong>${course.nome}</strong>
-                            <div class="course-plans-prices">${pricesHtml}</div>
-                        </label>
-                    </div>
-                `;
-                categoryContainer.append(checkboxHtml);
+                grouped[day].forEach(({ course, parts }) => {
+                    const uniqueId = `course-${course.id}-${apprenticeNumber}`;
+                    const courseName = parts[0] || course.nome;
+                    const courseTime = parts[1] ? parts[1].replace(/^\w+\s/, '') : ''; // remove o dia, mantém o horário
+                    const courseAge = parts[2] || '';
+
+                    const planKeys = getCoursePlanKeys(course);
+                    const pricesHtml = planKeys
+                        .map((planKey) => {
+                            const planInfo = priceCalculator.getPaymentPlanInfo(planKey);
+                            const planName = planInfo ? planInfo.nome : planKey;
+                            const planPrice = priceCalculator.getCoursePrice(course.id, planKey, frequencyKey);
+                            return `<span class="plan-price-tag" data-plan-key="${planKey}" data-plan-name="${planName}" data-course-id="${course.id}"><strong>${planName}:</strong> ${priceCalculator.formatCurrency(planPrice)}</span>`;
+                        }).join('');
+
+                    const checkboxHtml = `
+                        <div class="checkbox-group">
+                            <input type="radio"
+                                   class="course-checkbox"
+                                   name="course-aprendiz-${apprenticeNumber}"
+                                   value="${course.id}"
+                                   id="${uniqueId}">
+                            <label for="${uniqueId}">
+                                <div class="course-label-header">
+                                    <strong class="course-name">${courseName}</strong>
+                                    <span class="course-meta">${[courseTime, courseAge].filter(Boolean).join(' · ')}</span>
+                                </div>
+                                <div class="course-plans-prices">${pricesHtml}</div>
+                            </label>
+                        </div>
+                    `;
+                    $dayGroup.append(checkboxHtml);
+                });
+
+                categoryContainer.append($dayGroup);
             });
         }
 

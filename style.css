@@ -809,6 +809,51 @@ body {
     gap: 8px;
 }
 
+.course-day-group {
+    margin-bottom: 16px;
+}
+
+.course-day-group:last-child {
+    margin-bottom: 0;
+}
+
+.course-day-header {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #9C4F2E;
+    margin: 0 0 8px 2px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #E5D4C1;
+}
+
+.course-day-group .courses-checkboxes,
+.course-day-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.course-label-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.course-name {
+    font-size: 0.95rem;
+    color: #3A2316;
+    line-height: 1.4;
+}
+
+.course-meta {
+    font-size: 0.82rem;
+    color: #7a6050;
+    font-weight: normal;
+}
+
 .courses-checkboxes .checkbox-group {
     margin-bottom: 0;
     align-items: flex-start;
@@ -840,7 +885,8 @@ body {
     cursor: pointer;
 }
 
-.courses-checkboxes .checkbox-group label strong {
+.courses-checkboxes .checkbox-group label strong,
+.courses-checkboxes .course-name {
     font-size: 0.95rem;
     color: #3A2316;
     line-height: 1.4;
