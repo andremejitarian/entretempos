@@ -75,9 +75,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 170,
+        "semestral": 160,
+        "anual": 150
       }
     },
     "danca_segunda_1530": {
@@ -87,9 +87,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 155,
+        "semestral": 145,
+        "anual": 135
       }
     },
     "capoeira_segunda_1745": {
@@ -147,9 +147,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 155,
+        "semestral": 145,
+        "anual": 135
       }
     },
     "danca_livre_terca_1530": {
@@ -159,9 +159,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 155,
+        "semestral": 145,
+        "anual": 135
       }
     },
     "danca_livre_terca_1630": {
@@ -171,9 +171,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 155,
+        "semestral": 145,
+        "anual": 135
       }
     },
     "swasthya_yoga_terca_1730": {
@@ -245,9 +245,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 155,
+        "semestral": 145,
+        "anual": 135
       }
     },
     "ritmos_quarta_1630": {
@@ -317,9 +317,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 155,
+        "semestral": 145,
+        "anual": 135
       }
     },
     "danca_quinta_1530": {
@@ -329,9 +329,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 155,
+        "semestral": 145,
+        "anual": 135
       }
     },
     "danca_saia_quinta_1630": {
@@ -403,9 +403,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 125,
+        "semestral": 115,
+        "anual": 105
       }
     },
     "danca_sexta_1630": {
@@ -415,9 +415,9 @@
       "fixedValue": 0,
       "precos_1x_semana": {
         "avulso": 80,
-        "mensal": 185,
-        "semestral": 175,
-        "anual": 165
+        "mensal": 155,
+        "semestral": 145,
+        "anual": 135
       }
     },
     "ritmos_sexta_1730": {
