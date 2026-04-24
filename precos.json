@@ -396,6 +396,18 @@
         "anual": 165
       }
     },
+    "danca_60_sexta_1000": {
+      "nome": "Dança 60+ // sexta 10h00 // Melhor Idade",
+      "categoria": "curso",
+      "walletId": "",
+      "fixedValue": 0,
+      "precos_1x_semana": {
+        "avulso": 80,
+        "mensal": 185,
+        "semestral": 175,
+        "anual": 165
+      }
+    },
     "brincadanca_sexta_1530": {
       "nome": "Brincadança // sexta 15h30 // 2-4 anos",
       "categoria": "curso",
